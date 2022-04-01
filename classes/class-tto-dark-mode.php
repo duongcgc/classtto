@@ -135,7 +135,7 @@ class Class_TTO_Dark_Mode {
 		}
 
 		// Custom notice control.
-		include_once get_theme_file_path( 'classes/class-twenty-twenty-one-customize-notice-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		include_once get_theme_file_path( 'classes/class-tto-customize-notice-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 		$wp_customize->add_setting(
 			'respect_user_color_preference_notice',

@@ -527,10 +527,10 @@ function classtto_non_latin_languages() {
 add_action( 'wp_enqueue_scripts', 'classtto_non_latin_languages' );
 
 // SVG Icons class.
-require get_template_directory() . '/classes/class-twenty-twenty-one-svg-icons.php';
+require get_template_directory() . '/classes/class-tto-svg-icons.php';
 
 // Custom color classes.
-require get_template_directory() . '/classes/class-twenty-twenty-one-custom-colors.php';
+require get_template_directory() . '/classes/class-tto-custom-colors.php';
 new Class_TTO_Custom_Colors();
 
 // Enhance the theme by hooking into WordPress.
@@ -543,7 +543,7 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/classes/class-twenty-twenty-one-customize.php';
+require get_template_directory() . '/classes/class-tto-customize.php';
 new Class_TTO_Customize();
 
 // Block Patterns.
@@ -553,7 +553,7 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory() . '/classes/class-twenty-twenty-one-dark-mode.php';
+require_once get_template_directory() . '/classes/class-tto-dark-mode.php';
 new Class_TTO_Dark_Mode();
 
 /**

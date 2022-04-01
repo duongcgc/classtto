@@ -113,7 +113,7 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 
 			// Background color.
 			// Include the custom control class.
-			include_once get_theme_file_path( 'classes/class-twenty-twenty-one-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			include_once get_theme_file_path( 'classes/class-tto-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			// Register the custom control.
 			$wp_customize->register_control_type( 'Class_TTO_Customize_Color_Control' );
