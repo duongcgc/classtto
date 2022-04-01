@@ -11,7 +11,7 @@
  *
  * @return {void}
  */
-function classttoResponsiveEmbeds() {
+function cttoResponsiveEmbeds() {
 	var proportion, parentWidth;
 
 	// Loop iframe elements.
@@ -30,7 +30,7 @@ function classttoResponsiveEmbeds() {
 }
 
 // Run on initial load.
-classttoResponsiveEmbeds();
+cttoResponsiveEmbeds();
 
 // Run on resize.
-window.onresize = classttoResponsiveEmbeds;
+window.onresize = cttoResponsiveEmbeds;

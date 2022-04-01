@@ -3,7 +3,7 @@
  *
  * Helps with accessibility for keyboard only users.
  *
- * This is the source file for what is minified in the classtto_skip_link_focus_fix() PHP function.
+ * This is the source file for what is minified in the ctto_skip_link_focus_fix() PHP function.
  *
  * Learn more: https://git.io/vWdr2
  *

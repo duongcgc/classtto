@@ -19,21 +19,21 @@
 			<?php the_title( sprintf( '<h2 class="entry-title default-max-width"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 		<?php endif; ?>
 
-		<?php classtto_post_thumbnail(); ?>
+		<?php ctto_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
 		the_content(
-			classtto_continue_reading_text()
+			ctto_continue_reading_text()
 		);
 
 		wp_link_pages(
 			array(
-				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'classtto' ) . '">',
+				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'ctto' ) . '">',
 				'after'    => '</nav>',
 				/* translators: %: Page number. */
-				'pagelink' => esc_html__( 'Page %', 'classtto' ),
+				'pagelink' => esc_html__( 'Page %', 'ctto' ),
 			)
 		);
 
@@ -41,6 +41,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer default-max-width">
-		<?php classtto_entry_meta_footer(); ?>
+		<?php ctto_entry_meta_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

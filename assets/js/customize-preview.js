@@ -1,13 +1,13 @@
-/* global classttoGetHexLum, jQuery */
+/* global cttoGetHexLum, jQuery */
 ( function() {
 	// Add listener for the "background_color" control.
 	wp.customize( 'background_color', function( value ) {
 		value.bind( function( to ) {
-			var lum = classttoGetHexLum( to ),
+			var lum = cttoGetHexLum( to ),
 				isDark = 127 > lum,
 				textColor = ! isDark ? 'var(--global--color-dark-gray)' : 'var(--global--color-light-gray)',
 				tableColor = ! isDark ? 'var(--global--color-light-gray)' : 'var(--global--color-dark-gray)',
-				stylesheetID = 'classtto-customizer-inline-styles',
+				stylesheetID = 'ctto-customizer-inline-styles',
 				stylesheet,
 				styles;
 
@@ -39,7 +39,7 @@
 			styles = '';
 			// If the stylesheet doesn't exist, create it and append it to <head>.
 			if ( ! stylesheet.length ) {
-				jQuery( '#twenty-twenty-one-style-inline-css' ).after( '<style id="' + stylesheetID + '"></style>' );
+				jQuery( '#ctto-style-inline-css' ).after( '<style id="' + stylesheetID + '"></style>' );
 				stylesheet = jQuery( '#' + stylesheetID );
 			}
 

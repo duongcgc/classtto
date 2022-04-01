@@ -171,7 +171,7 @@ class Class_TTO_SVG_Icons {
 		 *
 		 * @param array $arr Array of icons.
 		 */
-		$arr = apply_filters( "classtto_svg_icons_{$group}", $arr );
+		$arr = apply_filters( "ctto_svg_icons_{$group}", $arr );
 
 		$svg = '';
 		if ( array_key_exists( $icon, $arr ) ) {
@@ -211,7 +211,7 @@ class Class_TTO_SVG_Icons {
 			 *
 			 * @param array $social_icons_map Array of default social icons.
 			 */
-			$map = apply_filters( 'classtto_social_icons_map', self::$social_icons_map );
+			$map = apply_filters( 'ctto_social_icons_map', self::$social_icons_map );
 
 			/**
 			 * Filters Class TTO's array of social icons.
@@ -220,7 +220,7 @@ class Class_TTO_SVG_Icons {
 			 *
 			 * @param array $social_icons Array of default social icons.
 			 */
-			$social_icons = apply_filters( 'classtto_svg_icons_social', self::$social_icons );
+			$social_icons = apply_filters( 'ctto_svg_icons_social', self::$social_icons );
 
 			foreach ( array_keys( $social_icons ) as $icon ) {
 				$domains            = array_key_exists( $icon, $map ) ? $map[ $icon ] : array( sprintf( '%s.com', $icon ) );

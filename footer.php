@@ -21,7 +21,7 @@
 	<footer id="colophon" class="site-footer">
 
 		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav aria-label="<?php esc_attr_e( 'Secondary menu', 'classtto' ); ?>" class="footer-navigation">
+			<nav aria-label="<?php esc_attr_e( 'Secondary menu', 'ctto' ); ?>" class="footer-navigation">
 				<ul class="footer-navigation-wrapper">
 					<?php
 					wp_nav_menu(
@@ -64,8 +64,8 @@
 				<?php
 				printf(
 					/* translators: %s: WordPress. */
-					esc_html__( 'Proudly powered by %s.', 'classtto' ),
-					'<a href="' . esc_url( __( 'https://wordpress.org/', 'classtto' ) ) . '">WordPress</a>'
+					esc_html__( 'Proudly powered by %s.', 'ctto' ),
+					'<a href="' . esc_url( __( 'https://wordpress.org/', 'ctto' ) ) . '">WordPress</a>'
 				);
 				?>
 			</div><!-- .powered-by -->

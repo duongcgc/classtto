@@ -22,7 +22,7 @@ while ( have_posts() ) :
 		the_post_navigation(
 			array(
 				/* translators: %s: Parent post link. */
-				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'classtto' ), '%title' ),
+				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'ctto' ), '%title' ),
 			)
 		);
 	}
@@ -33,16 +33,16 @@ while ( have_posts() ) :
 	}
 
 	// Previous/next post navigation.
-	$classtto_next = is_rtl() ? classtto_get_icon_svg( 'ui', 'arrow_left' ) : classtto_get_icon_svg( 'ui', 'arrow_right' );
-	$classtto_prev = is_rtl() ? classtto_get_icon_svg( 'ui', 'arrow_right' ) : classtto_get_icon_svg( 'ui', 'arrow_left' );
+	$ctto_next = is_rtl() ? ctto_get_icon_svg( 'ui', 'arrow_left' ) : ctto_get_icon_svg( 'ui', 'arrow_right' );
+	$ctto_prev = is_rtl() ? ctto_get_icon_svg( 'ui', 'arrow_right' ) : ctto_get_icon_svg( 'ui', 'arrow_left' );
 
-	$classtto_next_label     = esc_html__( 'Next post', 'classtto' );
-	$classtto_previous_label = esc_html__( 'Previous post', 'classtto' );
+	$ctto_next_label     = esc_html__( 'Next post', 'ctto' );
+	$ctto_previous_label = esc_html__( 'Previous post', 'ctto' );
 
 	the_post_navigation(
 		array(
-			'next_text' => '<p class="meta-nav">' . $classtto_next_label . $classtto_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $classtto_prev . $classtto_previous_label . '</p><p class="post-title">%title</p>',
+			'next_text' => '<p class="meta-nav">' . $ctto_next_label . $ctto_next . '</p><p class="post-title">%title</p>',
+			'prev_text' => '<p class="meta-nav">' . $ctto_prev . $ctto_previous_label . '</p><p class="post-title">%title</p>',
 		)
 	);
 endwhile; // End of the loop.

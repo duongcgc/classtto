@@ -1,5 +1,5 @@
 {
-	"name": "classtto",
+	"name": "ctto",
 	"version": "1.5.0",
 	"description": "Default WP Theme",
 	"author": "The WordPress Contributors",
@@ -11,7 +11,7 @@
 	"bugs": {
 		"url": "https://core.trac.wordpress.org/"
 	},
-	"homepage": "https://wordpress.org/themes/classtto/",
+	"homepage": "https://wordpress.org/themes/ctto/",
 	"devDependencies": {
 		"@wordpress/browserslist-config": "^4.0.1",
 		"@wordpress/eslint-plugin": "^9.2.0",

@@ -8,7 +8,7 @@
  *
  * @since Class TTO 1.0
  */
-wp.customize.controlConstructor['twenty-twenty-one-color'] = wp.customize.Control.extend( {
+wp.customize.controlConstructor['ctto-color'] = wp.customize.Control.extend( {
 	ready: function() {
 		var control = this,
 			updating = false,

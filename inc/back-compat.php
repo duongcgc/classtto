@@ -18,10 +18,10 @@
  *
  * @return void
  */
-function classtto_switch_theme() {
-	add_action( 'admin_notices', 'classtto_upgrade_notice' );
+function ctto_switch_theme() {
+	add_action( 'admin_notices', 'ctto_upgrade_notice' );
 }
-add_action( 'after_switch_theme', 'classtto_switch_theme' );
+add_action( 'after_switch_theme', 'ctto_switch_theme' );
 
 /**
  * Adds a message for unsuccessful theme switch.
@@ -35,11 +35,11 @@ add_action( 'after_switch_theme', 'classtto_switch_theme' );
  *
  * @return void
  */
-function classtto_upgrade_notice() {
+function ctto_upgrade_notice() {
 	echo '<div class="error"><p>';
 	printf(
 		/* translators: %s: WordPress Version. */
-		esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'classtto' ),
+		esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'ctto' ),
 		esc_html( $GLOBALS['wp_version'] )
 	);
 	echo '</p></div>';
@@ -54,11 +54,11 @@ function classtto_upgrade_notice() {
  *
  * @return void
  */
-function classtto_customize() {
+function ctto_customize() {
 	wp_die(
 		sprintf(
 			/* translators: %s: WordPress Version. */
-			esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'classtto' ),
+			esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'ctto' ),
 			esc_html( $GLOBALS['wp_version'] )
 		),
 		'',
@@ -67,7 +67,7 @@ function classtto_customize() {
 		)
 	);
 }
-add_action( 'load-customize.php', 'classtto_customize' );
+add_action( 'load-customize.php', 'ctto_customize' );
 
 /**
  * Prevents the Theme Preview from being loaded on WordPress versions prior to 5.3.
@@ -78,15 +78,15 @@ add_action( 'load-customize.php', 'classtto_customize' );
  *
  * @return void
  */
-function classtto_preview() {
+function ctto_preview() {
 	if ( isset( $_GET['preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 		wp_die(
 			sprintf(
 				/* translators: %s: WordPress Version. */
-				esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'classtto' ),
+				esc_html__( 'This theme requires WordPress 5.3 or newer. You are running version %s. Please upgrade.', 'ctto' ),
 				esc_html( $GLOBALS['wp_version'] )
 			)
 		);
 	}
 }
-add_action( 'template_redirect', 'classtto_preview' );
+add_action( 'template_redirect', 'ctto_preview' );

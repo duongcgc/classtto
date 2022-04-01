@@ -85,7 +85,7 @@ class Class_TTO_Custom_Colors {
 	 */
 	public function custom_color_variables() {
 		if ( 'd1e4dd' !== strtolower( get_theme_mod( 'background_color', 'D1E4DD' ) ) ) {
-			wp_add_inline_style( 'twenty-twenty-one-style', $this->generate_custom_color_variables() );
+			wp_add_inline_style( 'ctto-style', $this->generate_custom_color_variables() );
 		}
 	}
 
@@ -98,7 +98,7 @@ class Class_TTO_Custom_Colors {
 	 */
 	public function editor_custom_color_variables() {
 		wp_enqueue_style(
-			'twenty-twenty-one-custom-color-overrides',
+			'ctto-custom-color-overrides',
 			get_theme_file_uri( 'assets/css/custom-color-overrides.css' ),
 			array(),
 			wp_get_theme()->get( 'Version' )
@@ -106,7 +106,7 @@ class Class_TTO_Custom_Colors {
 
 		$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
 		if ( 'd1e4dd' !== strtolower( $background_color ) ) {
-			wp_add_inline_style( 'twenty-twenty-one-custom-color-overrides', $this->generate_custom_color_variables( 'editor' ) );
+			wp_add_inline_style( 'ctto-custom-color-overrides', $this->generate_custom_color_variables( 'editor' ) );
 		}
 	}
 

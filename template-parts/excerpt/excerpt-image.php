@@ -11,11 +11,11 @@
 
 // If there is no featured-image, print the first image block found.
 if (
-	! classtto_can_show_post_thumbnail() &&
+	! ctto_can_show_post_thumbnail() &&
 	has_block( 'core/image', get_the_content() )
 ) {
 
-	classtto_print_first_instance_of_block( 'core/image', get_the_content() );
+	ctto_print_first_instance_of_block( 'core/image', get_the_content() );
 }
 
 the_excerpt();

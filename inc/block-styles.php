@@ -17,13 +17,13 @@ if ( function_exists( 'register_block_style' ) ) {
 	 *
 	 * @return void
 	 */
-	function classtto_register_block_styles() {
+	function ctto_register_block_styles() {
 		// Columns: Overlap.
 		register_block_style(
 			'core/columns',
 			array(
-				'name'  => 'classtto-columns-overlap',
-				'label' => esc_html__( 'Overlap', 'classtto' ),
+				'name'  => 'ctto-columns-overlap',
+				'label' => esc_html__( 'Overlap', 'ctto' ),
 			)
 		);
 
@@ -31,8 +31,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/cover',
 			array(
-				'name'  => 'classtto-border',
-				'label' => esc_html__( 'Borders', 'classtto' ),
+				'name'  => 'ctto-border',
+				'label' => esc_html__( 'Borders', 'ctto' ),
 			)
 		);
 
@@ -40,8 +40,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'classtto-border',
-				'label' => esc_html__( 'Borders', 'classtto' ),
+				'name'  => 'ctto-border',
+				'label' => esc_html__( 'Borders', 'ctto' ),
 			)
 		);
 
@@ -49,8 +49,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/image',
 			array(
-				'name'  => 'classtto-border',
-				'label' => esc_html__( 'Borders', 'classtto' ),
+				'name'  => 'ctto-border',
+				'label' => esc_html__( 'Borders', 'ctto' ),
 			)
 		);
 
@@ -58,8 +58,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/image',
 			array(
-				'name'  => 'classtto-image-frame',
-				'label' => esc_html__( 'Frame', 'classtto' ),
+				'name'  => 'ctto-image-frame',
+				'label' => esc_html__( 'Frame', 'ctto' ),
 			)
 		);
 
@@ -67,8 +67,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/latest-posts',
 			array(
-				'name'  => 'classtto-latest-posts-dividers',
-				'label' => esc_html__( 'Dividers', 'classtto' ),
+				'name'  => 'ctto-latest-posts-dividers',
+				'label' => esc_html__( 'Dividers', 'ctto' ),
 			)
 		);
 
@@ -76,8 +76,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/latest-posts',
 			array(
-				'name'  => 'classtto-latest-posts-borders',
-				'label' => esc_html__( 'Borders', 'classtto' ),
+				'name'  => 'ctto-latest-posts-borders',
+				'label' => esc_html__( 'Borders', 'ctto' ),
 			)
 		);
 
@@ -85,8 +85,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/media-text',
 			array(
-				'name'  => 'classtto-border',
-				'label' => esc_html__( 'Borders', 'classtto' ),
+				'name'  => 'ctto-border',
+				'label' => esc_html__( 'Borders', 'ctto' ),
 			)
 		);
 
@@ -94,8 +94,8 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/separator',
 			array(
-				'name'  => 'classtto-separator-thick',
-				'label' => esc_html__( 'Thick', 'classtto' ),
+				'name'  => 'ctto-separator-thick',
+				'label' => esc_html__( 'Thick', 'ctto' ),
 			)
 		);
 
@@ -103,10 +103,10 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/social-links',
 			array(
-				'name'  => 'classtto-social-icons-color',
-				'label' => esc_html__( 'Dark gray', 'classtto' ),
+				'name'  => 'ctto-social-icons-color',
+				'label' => esc_html__( 'Dark gray', 'ctto' ),
 			)
 		);
 	}
-	add_action( 'init', 'classtto_register_block_styles' );
+	add_action( 'init', 'ctto_register_block_styles' );
 }

@@ -19,7 +19,7 @@
 				<?php
 				printf(
 					/* translators: %s: Search term. */
-					esc_html__( 'Results for "%s"', 'classtto' ),
+					esc_html__( 'Results for "%s"', 'ctto' ),
 					'<span class="page-description search-term">' . esc_html( get_search_query() ) . '</span>'
 				);
 				?>
@@ -27,7 +27,7 @@
 
 		<?php else : ?>
 
-			<h1 class="page-title"><?php esc_html_e( 'Nothing here', 'classtto' ); ?></h1>
+			<h1 class="page-title"><?php esc_html_e( 'Nothing here', 'ctto' ); ?></h1>
 
 		<?php endif; ?>
 	</header><!-- .page-header -->
@@ -40,7 +40,7 @@
 			printf(
 				'<p>' . wp_kses(
 					/* translators: %s: Link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'classtto' ),
+					__( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'ctto' ),
 					array(
 						'a' => array(
 							'href' => array(),
@@ -53,12 +53,12 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'classtto' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ctto' ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'classtto' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'ctto' ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>

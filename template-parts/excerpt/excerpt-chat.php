@@ -13,7 +13,7 @@
 // Otherwise this is legacy content, so print the excerpt.
 if ( has_block( 'core/paragraph', get_the_content() ) ) {
 
-	classtto_print_first_instance_of_block( 'core/paragraph', get_the_content(), 2 );
+	ctto_print_first_instance_of_block( 'core/paragraph', get_the_content(), 2 );
 } else {
 
 	the_excerpt();

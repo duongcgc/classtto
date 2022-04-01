@@ -33,32 +33,32 @@ No data is saved in the database or transferred.
 = 1.5 =
 * Released: January 25, 2022
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.5
+https://wordpress.org/support/article/ctto-changelog#Version_1.5
 
 = 1.4 =
 * Released: July 20, 2021
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.4
+https://wordpress.org/support/article/ctto-changelog#Version_1.4
 
 = 1.3 =
 * Released: April 14, 2021
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.3
+https://wordpress.org/support/article/ctto-changelog#Version_1.3
 
 = 1.2 =
 * Released: March 9, 2021
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.2
+https://wordpress.org/support/article/ctto-changelog#Version_1.2
 
 = 1.1 =
 * Released: December 22, 2020
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.1
+https://wordpress.org/support/article/ctto-changelog#Version_1.1
 
 = 1.0 =
 * Released: December 8, 2020
 
-https://wordpress.org/support/article/twenty-twenty-one-changelog#Version_1.0
+https://wordpress.org/support/article/ctto-changelog#Version_1.0
 
 == Copyright ==
 

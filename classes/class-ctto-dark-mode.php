@@ -32,7 +32,7 @@ class Class_TTO_Dark_Mode {
 		add_action( 'customize_register', array( $this, 'customizer_controls' ) );
 
 		// Add HTML classes.
-		add_filter( 'classtto_html_classes', array( $this, 'html_classes' ) );
+		add_filter( 'ctto_html_classes', array( $this, 'html_classes' ) );
 
 		// Add classes to <body> in the dashboard.
 		add_filter( 'admin_body_class', array( $this, 'admin_body_classes' ) );
@@ -60,12 +60,12 @@ class Class_TTO_Dark_Mode {
 		if ( $should_respect_color_scheme && Class_TTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) > 127 ) {
 			// Add Dark Mode variable overrides.
 			wp_add_inline_style(
-				'twenty-twenty-one-custom-color-overrides',
+				'ctto-custom-color-overrides',
 				'.is-dark-theme.is-dark-theme .editor-styles-wrapper { --global--color-background: var(--global--color-dark-gray); --global--color-primary: var(--global--color-light-gray); --global--color-secondary: var(--global--color-light-gray); --button--color-text: var(--global--color-background); --button--color-text-hover: var(--global--color-secondary); --button--color-text-active: var(--global--color-secondary); --button--color-background: var(--global--color-secondary); --button--color-background-active: var(--global--color-background); --global--color-border: #9ea1a7; --table--stripes-border-color: rgba(240, 240, 240, 0.15); --table--stripes-background-color: rgba(240, 240, 240, 0.15); }'
 			);
 		}
 		wp_enqueue_script(
-			'classtto-dark-mode-support-toggle',
+			'ctto-dark-mode-support-toggle',
 			get_template_directory_uri() . '/assets/js/dark-mode-toggler.js',
 			array(),
 			'1.0.0',
@@ -73,9 +73,9 @@ class Class_TTO_Dark_Mode {
 		);
 
 		wp_enqueue_script(
-			'classtto-editor-dark-mode-support',
+			'ctto-editor-dark-mode-support',
 			get_template_directory_uri() . '/assets/js/editor-dark-mode-support.js',
-			array( 'classtto-dark-mode-support-toggle' ),
+			array( 'ctto-dark-mode-support-toggle' ),
 			'1.0.0',
 			true
 		);
@@ -96,7 +96,7 @@ class Class_TTO_Dark_Mode {
 		if ( is_rtl() ) {
 			$url = get_template_directory_uri() . '/assets/css/style-dark-mode-rtl.css';
 		}
-		wp_enqueue_style( 'tt1-dark-mode', $url, array( 'twenty-twenty-one-style' ), wp_get_theme()->get( 'Version' ) ); // @phpstan-ignore-line. Version is always a string.
+		wp_enqueue_style( 'tt1-dark-mode', $url, array( 'ctto-style' ), wp_get_theme()->get( 'Version' ) ); // @phpstan-ignore-line. Version is always a string.
 	}
 
 	/**
@@ -111,9 +111,9 @@ class Class_TTO_Dark_Mode {
 			return;
 		}
 		wp_enqueue_script(
-			'classtto-customize-controls',
+			'ctto-customize-controls',
 			get_template_directory_uri() . '/assets/js/customize.js',
-			array( 'customize-base', 'customize-controls', 'underscore', 'jquery', 'classtto-customize-helpers' ),
+			array( 'customize-base', 'customize-controls', 'underscore', 'jquery', 'ctto-customize-helpers' ),
 			'1.0.0',
 			true
 		);
@@ -131,11 +131,11 @@ class Class_TTO_Dark_Mode {
 
 		$colors_section = $wp_customize->get_section( 'colors' );
 		if ( is_object( $colors_section ) ) {
-			$colors_section->title = __( 'Colors & Dark Mode', 'classtto' );
+			$colors_section->title = __( 'Colors & Dark Mode', 'ctto' );
 		}
 
 		// Custom notice control.
-		include_once get_theme_file_path( 'classes/class-tto-customize-notice-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		include_once get_theme_file_path( 'classes/class-ctto-customize-notice-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 		$wp_customize->add_setting(
 			'respect_user_color_preference_notice',
@@ -174,18 +174,18 @@ class Class_TTO_Dark_Mode {
 		$description  = '<p>';
 		$description .= sprintf(
 			/* translators: %s: Class TTO support article URL. */
-			__( 'Dark Mode is a device setting. If a visitor to your site requests it, your site will be shown with a dark background and light text. <a href="%s">Learn more about Dark Mode.</a>', 'classtto' ),
-			esc_url( __( 'https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support', 'classtto' ) )
+			__( 'Dark Mode is a device setting. If a visitor to your site requests it, your site will be shown with a dark background and light text. <a href="%s">Learn more about Dark Mode.</a>', 'ctto' ),
+			esc_url( __( 'https://wordpress.org/support/article/twenty-twenty-one/#dark-mode-support', 'ctto' ) )
 		);
 		$description .= '</p>';
-		$description .= '<p>' . __( 'Dark Mode can also be turned on and off with a button that you can find in the bottom corner of the page.', 'classtto' ) . '</p>';
+		$description .= '<p>' . __( 'Dark Mode can also be turned on and off with a button that you can find in the bottom corner of the page.', 'ctto' ) . '</p>';
 
 		$wp_customize->add_control(
 			'respect_user_color_preference',
 			array(
 				'type'            => 'checkbox',
 				'section'         => 'colors',
-				'label'           => esc_html__( 'Dark Mode support', 'classtto' ),
+				'label'           => esc_html__( 'Dark Mode support', 'ctto' ),
 				'priority'        => 110,
 				'description'     => $description,
 				'active_callback' => static function( $value ) {
@@ -253,7 +253,7 @@ class Class_TTO_Dark_Mode {
 			$background_color            = get_theme_mod( 'background_color', 'D1E4DD' );
 
 			if ( $should_respect_color_scheme && Class_TTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) > 127 ) {
-				$classes .= ' classtto-supports-dark-theme';
+				$classes .= ' ctto-supports-dark-theme';
 			}
 		}
 
@@ -318,7 +318,7 @@ class Class_TTO_Dark_Mode {
 		echo '>';
 		printf(
 			/* translators: %s: On/Off */
-			esc_html__( 'Dark Mode: %s', 'classtto' ),
+			esc_html__( 'Dark Mode: %s', 'ctto' ),
 			'<span aria-hidden="true"></span>'
 		);
 		echo '</button>';
@@ -328,10 +328,10 @@ class Class_TTO_Dark_Mode {
 				margin-<?php echo is_rtl() ? 'right' : 'left'; ?>: 5px;
 			}
 			#dark-mode-toggler > span::before {
-				content: '<?php esc_attr_e( 'Off', 'classtto' ); ?>';
+				content: '<?php esc_attr_e( 'Off', 'ctto' ); ?>';
 			}
 			#dark-mode-toggler[aria-pressed="true"] > span::before {
-				content: '<?php esc_attr_e( 'On', 'classtto' ); ?>';
+				content: '<?php esc_attr_e( 'On', 'ctto' ); ?>';
 			}
 			<?php if ( is_admin() || wp_is_json_request() ) : ?>
 				.components-editor-notices__pinned ~ .edit-post-visual-editor #dark-mode-toggler {
@@ -375,9 +375,9 @@ class Class_TTO_Dark_Mode {
 		if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) {
 			return;
 		}
-		$content = '<p class="privacy-policy-tutorial">' . __( 'Class TTO uses LocalStorage when Dark Mode support is enabled.', 'classtto' ) . '</p>'
-				. '<strong class="privacy-policy-tutorial">' . __( 'Suggested text:', 'classtto' ) . '</strong> '
-				. __( 'This website uses LocalStorage to save the setting when Dark Mode support is turned on or off.<br> LocalStorage is necessary for the setting to work and is only used when a user clicks on the Dark Mode button.<br> No data is saved in the database or transferred.', 'classtto' );
+		$content = '<p class="privacy-policy-tutorial">' . __( 'Class TTO uses LocalStorage when Dark Mode support is enabled.', 'ctto' ) . '</p>'
+				. '<strong class="privacy-policy-tutorial">' . __( 'Suggested text:', 'ctto' ) . '</strong> '
+				. __( 'This website uses LocalStorage to save the setting when Dark Mode support is turned on or off.<br> LocalStorage is necessary for the setting to work and is only used when a user clicks on the Dark Mode button.<br> No data is saved in the database or transferred.', 'ctto' );
 		wp_add_privacy_policy_content( 'Class TTO', wp_kses_post( wpautop( $content, false ) ) );
 	}
 

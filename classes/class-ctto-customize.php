@@ -72,7 +72,7 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 				array(
 					'type'    => 'checkbox',
 					'section' => 'title_tagline',
-					'label'   => esc_html__( 'Display Site Title & Tagline', 'classtto' ),
+					'label'   => esc_html__( 'Display Site Title & Tagline', 'ctto' ),
 				)
 			);
 
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 			$wp_customize->add_section(
 				'excerpt_settings',
 				array(
-					'title'    => esc_html__( 'Excerpt Settings', 'classtto' ),
+					'title'    => esc_html__( 'Excerpt Settings', 'ctto' ),
 					'priority' => 120,
 				)
 			);
@@ -103,17 +103,17 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 				array(
 					'type'    => 'radio',
 					'section' => 'excerpt_settings',
-					'label'   => esc_html__( 'On Archive Pages, posts show:', 'classtto' ),
+					'label'   => esc_html__( 'On Archive Pages, posts show:', 'ctto' ),
 					'choices' => array(
-						'excerpt' => esc_html__( 'Summary', 'classtto' ),
-						'full'    => esc_html__( 'Full text', 'classtto' ),
+						'excerpt' => esc_html__( 'Summary', 'ctto' ),
+						'full'    => esc_html__( 'Full text', 'ctto' ),
 					),
 				)
 			);
 
 			// Background color.
 			// Include the custom control class.
-			include_once get_theme_file_path( 'classes/class-tto-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			include_once get_theme_file_path( 'classes/class-ctto-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			// Register the custom control.
 			$wp_customize->register_control_type( 'Class_TTO_Customize_Color_Control' );
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 					$wp_customize,
 					'background_color',
 					array(
-						'label'   => esc_html_x( 'Background color', 'Customizer control', 'classtto' ),
+						'label'   => esc_html_x( 'Background color', 'Customizer control', 'ctto' ),
 						'section' => 'colors',
 						'palette' => $colors,
 					)

@@ -12,11 +12,11 @@
 $content = get_the_content();
 
 if ( has_block( 'core/video', $content ) ) {
-	classtto_print_first_instance_of_block( 'core/video', $content );
+	ctto_print_first_instance_of_block( 'core/video', $content );
 } elseif ( has_block( 'core/embed', $content ) ) {
-	classtto_print_first_instance_of_block( 'core/embed', $content );
+	ctto_print_first_instance_of_block( 'core/embed', $content );
 } else {
-	classtto_print_first_instance_of_block( 'core-embed/*', $content );
+	ctto_print_first_instance_of_block( 'core-embed/*', $content );
 }
 
 // Add the excerpt.

@@ -20,7 +20,7 @@
  * @param bool   $echo     Echo the styles.
  * @return string
  */
-function classtto_generate_css( $selector, $style, $value, $prefix = '', $suffix = '', $echo = true ) {
+function ctto_generate_css( $selector, $style, $value, $prefix = '', $suffix = '', $echo = true ) {
 
 	// Bail early if there is no $selector elements or properties and $value.
 	if ( ! $value || ! $selector ) {

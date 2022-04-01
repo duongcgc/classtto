@@ -14,7 +14,7 @@ if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
-if ( ! function_exists( 'classtto_setup' ) ) {
+if ( ! function_exists( 'ctto_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -26,14 +26,14 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 	 *
 	 * @return void
 	 */
-	function classtto_setup() {
+	function ctto_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Class TTO, use a find and replace
-		 * to change 'classtto' to the name of your theme in all the template files.
+		 * to change 'ctto' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'classtto', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'ctto', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -73,8 +73,8 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 
 		register_nav_menus(
 			array(
-				'primary' => esc_html__( 'Primary menu', 'classtto' ),
-				'footer'  => esc_html__( 'Secondary menu', 'classtto' ),
+				'primary' => esc_html__( 'Primary menu', 'ctto' ),
+				'footer'  => esc_html__( 'Secondary menu', 'ctto' ),
 			)
 		);
 
@@ -147,44 +147,44 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 			'editor-font-sizes',
 			array(
 				array(
-					'name'      => esc_html__( 'Extra small', 'classtto' ),
-					'shortName' => esc_html_x( 'XS', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Extra small', 'ctto' ),
+					'shortName' => esc_html_x( 'XS', 'Font size', 'ctto' ),
 					'size'      => 16,
 					'slug'      => 'extra-small',
 				),
 				array(
-					'name'      => esc_html__( 'Small', 'classtto' ),
-					'shortName' => esc_html_x( 'S', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Small', 'ctto' ),
+					'shortName' => esc_html_x( 'S', 'Font size', 'ctto' ),
 					'size'      => 18,
 					'slug'      => 'small',
 				),
 				array(
-					'name'      => esc_html__( 'Normal', 'classtto' ),
-					'shortName' => esc_html_x( 'M', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Normal', 'ctto' ),
+					'shortName' => esc_html_x( 'M', 'Font size', 'ctto' ),
 					'size'      => 20,
 					'slug'      => 'normal',
 				),
 				array(
-					'name'      => esc_html__( 'Large', 'classtto' ),
-					'shortName' => esc_html_x( 'L', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Large', 'ctto' ),
+					'shortName' => esc_html_x( 'L', 'Font size', 'ctto' ),
 					'size'      => 24,
 					'slug'      => 'large',
 				),
 				array(
-					'name'      => esc_html__( 'Extra large', 'classtto' ),
-					'shortName' => esc_html_x( 'XL', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Extra large', 'ctto' ),
+					'shortName' => esc_html_x( 'XL', 'Font size', 'ctto' ),
 					'size'      => 40,
 					'slug'      => 'extra-large',
 				),
 				array(
-					'name'      => esc_html__( 'Huge', 'classtto' ),
-					'shortName' => esc_html_x( 'XXL', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Huge', 'ctto' ),
+					'shortName' => esc_html_x( 'XXL', 'Font size', 'ctto' ),
 					'size'      => 96,
 					'slug'      => 'huge',
 				),
 				array(
-					'name'      => esc_html__( 'Gigantic', 'classtto' ),
-					'shortName' => esc_html_x( 'XXXL', 'Font size', 'classtto' ),
+					'name'      => esc_html__( 'Gigantic', 'ctto' ),
+					'shortName' => esc_html_x( 'XXXL', 'Font size', 'ctto' ),
 					'size'      => 144,
 					'slug'      => 'gigantic',
 				),
@@ -215,52 +215,52 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 			'editor-color-palette',
 			array(
 				array(
-					'name'  => esc_html__( 'Black', 'classtto' ),
+					'name'  => esc_html__( 'Black', 'ctto' ),
 					'slug'  => 'black',
 					'color' => $black,
 				),
 				array(
-					'name'  => esc_html__( 'Dark gray', 'classtto' ),
+					'name'  => esc_html__( 'Dark gray', 'ctto' ),
 					'slug'  => 'dark-gray',
 					'color' => $dark_gray,
 				),
 				array(
-					'name'  => esc_html__( 'Gray', 'classtto' ),
+					'name'  => esc_html__( 'Gray', 'ctto' ),
 					'slug'  => 'gray',
 					'color' => $gray,
 				),
 				array(
-					'name'  => esc_html__( 'Green', 'classtto' ),
+					'name'  => esc_html__( 'Green', 'ctto' ),
 					'slug'  => 'green',
 					'color' => $green,
 				),
 				array(
-					'name'  => esc_html__( 'Blue', 'classtto' ),
+					'name'  => esc_html__( 'Blue', 'ctto' ),
 					'slug'  => 'blue',
 					'color' => $blue,
 				),
 				array(
-					'name'  => esc_html__( 'Purple', 'classtto' ),
+					'name'  => esc_html__( 'Purple', 'ctto' ),
 					'slug'  => 'purple',
 					'color' => $purple,
 				),
 				array(
-					'name'  => esc_html__( 'Red', 'classtto' ),
+					'name'  => esc_html__( 'Red', 'ctto' ),
 					'slug'  => 'red',
 					'color' => $red,
 				),
 				array(
-					'name'  => esc_html__( 'Orange', 'classtto' ),
+					'name'  => esc_html__( 'Orange', 'ctto' ),
 					'slug'  => 'orange',
 					'color' => $orange,
 				),
 				array(
-					'name'  => esc_html__( 'Yellow', 'classtto' ),
+					'name'  => esc_html__( 'Yellow', 'ctto' ),
 					'slug'  => 'yellow',
 					'color' => $yellow,
 				),
 				array(
-					'name'  => esc_html__( 'White', 'classtto' ),
+					'name'  => esc_html__( 'White', 'ctto' ),
 					'slug'  => 'white',
 					'color' => $white,
 				),
@@ -271,42 +271,42 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 			'editor-gradient-presets',
 			array(
 				array(
-					'name'     => esc_html__( 'Purple to yellow', 'classtto' ),
+					'name'     => esc_html__( 'Purple to yellow', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $yellow . ' 100%)',
 					'slug'     => 'purple-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to purple', 'classtto' ),
+					'name'     => esc_html__( 'Yellow to purple', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $purple . ' 100%)',
 					'slug'     => 'yellow-to-purple',
 				),
 				array(
-					'name'     => esc_html__( 'Green to yellow', 'classtto' ),
+					'name'     => esc_html__( 'Green to yellow', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $green . ' 0%, ' . $yellow . ' 100%)',
 					'slug'     => 'green-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to green', 'classtto' ),
+					'name'     => esc_html__( 'Yellow to green', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $green . ' 100%)',
 					'slug'     => 'yellow-to-green',
 				),
 				array(
-					'name'     => esc_html__( 'Red to yellow', 'classtto' ),
+					'name'     => esc_html__( 'Red to yellow', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $yellow . ' 100%)',
 					'slug'     => 'red-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to red', 'classtto' ),
+					'name'     => esc_html__( 'Yellow to red', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $red . ' 100%)',
 					'slug'     => 'yellow-to-red',
 				),
 				array(
-					'name'     => esc_html__( 'Purple to red', 'classtto' ),
+					'name'     => esc_html__( 'Purple to red', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $red . ' 100%)',
 					'slug'     => 'purple-to-red',
 				),
 				array(
-					'name'     => esc_html__( 'Red to purple', 'classtto' ),
+					'name'     => esc_html__( 'Red to purple', 'ctto' ),
 					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $purple . ' 100%)',
 					'slug'     => 'red-to-purple',
 				),
@@ -320,7 +320,7 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 		*/
 		if ( is_customize_preview() ) {
 			require get_template_directory() . '/inc/starter-content.php';
-			add_theme_support( 'starter-content', classtto_get_starter_content() );
+			add_theme_support( 'starter-content', ctto_get_starter_content() );
 		}
 
 		// Add support for responsive embedded content.
@@ -343,7 +343,7 @@ if ( ! function_exists( 'classtto_setup' ) ) {
 		add_filter( 'rss_widget_feed_link', '__return_false' );
 	}
 }
-add_action( 'after_setup_theme', 'classtto_setup' );
+add_action( 'after_setup_theme', 'ctto_setup' );
 
 /**
  * Register widget area.
@@ -354,13 +354,13 @@ add_action( 'after_setup_theme', 'classtto_setup' );
  *
  * @return void
  */
-function classtto_widgets_init() {
+function ctto_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer', 'classtto' ),
+			'name'          => esc_html__( 'Footer', 'ctto' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'classtto' ),
+			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'ctto' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -368,7 +368,7 @@ function classtto_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'classtto_widgets_init' );
+add_action( 'widgets_init', 'ctto_widgets_init' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -381,13 +381,13 @@ add_action( 'widgets_init', 'classtto_widgets_init' );
  *
  * @return void
  */
-function classtto_content_width() {
+function ctto_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'classtto_content_width', 750 );
+	$GLOBALS['content_width'] = apply_filters( 'ctto_content_width', 750 );
 }
-add_action( 'after_setup_theme', 'classtto_content_width', 0 );
+add_action( 'after_setup_theme', 'ctto_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.
@@ -396,23 +396,23 @@ add_action( 'after_setup_theme', 'classtto_content_width', 0 );
  *
  * @return void
  */
-function classtto_scripts() {
+function ctto_scripts() {
 	// Note, the is_IE global variable is defined by WordPress and is used
 	// to detect if the current browser is internet explorer.
 	global $is_IE, $wp_scripts;
 	if ( $is_IE ) {
 		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'ctto-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
 	} else {
 		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'ctto-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
 	}
 
 	// RTL styles.
-	wp_style_add_data( 'twenty-twenty-one-style', 'rtl', 'replace' );
+	wp_style_add_data( 'ctto-style', 'rtl', 'replace' );
 
 	// Print styles.
-	wp_enqueue_style( 'twenty-twenty-one-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+	wp_enqueue_style( 'ctto-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
 	// Threaded comment reply styles.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -421,7 +421,7 @@ function classtto_scripts() {
 
 	// Register the IE11 polyfill file.
 	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills-asset',
+		'ctto-ie11-polyfills-asset',
 		get_template_directory_uri() . '/assets/js/polyfills.js',
 		array(),
 		wp_get_theme()->get( 'Version' ),
@@ -430,18 +430,18 @@ function classtto_scripts() {
 
 	// Register the IE11 polyfill loader.
 	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills',
+		'ctto-ie11-polyfills',
 		null,
 		array(),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 	wp_add_inline_script(
-		'twenty-twenty-one-ie11-polyfills',
+		'ctto-ie11-polyfills',
 		wp_get_script_polyfill(
 			$wp_scripts,
 			array(
-				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'twenty-twenty-one-ie11-polyfills-asset',
+				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'ctto-ie11-polyfills-asset',
 			)
 		)
 	);
@@ -449,9 +449,9 @@ function classtto_scripts() {
 	// Main navigation scripts.
 	if ( has_nav_menu( 'primary' ) ) {
 		wp_enqueue_script(
-			'twenty-twenty-one-primary-navigation-script',
+			'ctto-primary-navigation-script',
 			get_template_directory_uri() . '/assets/js/primary-navigation.js',
-			array( 'twenty-twenty-one-ie11-polyfills' ),
+			array( 'ctto-ie11-polyfills' ),
 			wp_get_theme()->get( 'Version' ),
 			true
 		);
@@ -459,14 +459,14 @@ function classtto_scripts() {
 
 	// Responsive embeds script.
 	wp_enqueue_script(
-		'twenty-twenty-one-responsive-embeds-script',
+		'ctto-responsive-embeds-script',
 		get_template_directory_uri() . '/assets/js/responsive-embeds.js',
-		array( 'twenty-twenty-one-ie11-polyfills' ),
+		array( 'ctto-ie11-polyfills' ),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'classtto_scripts' );
+add_action( 'wp_enqueue_scripts', 'ctto_scripts' );
 
 /**
  * Enqueue block editor script.
@@ -475,12 +475,12 @@ add_action( 'wp_enqueue_scripts', 'classtto_scripts' );
  *
  * @return void
  */
-function classtto_block_editor_script() {
+function ctto_block_editor_script() {
 
-	wp_enqueue_script( 'classtto-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'ctto-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
-add_action( 'enqueue_block_editor_assets', 'classtto_block_editor_script' );
+add_action( 'enqueue_block_editor_assets', 'ctto_block_editor_script' );
 
 /**
  * Fix skip link focus in IE11.
@@ -492,7 +492,7 @@ add_action( 'enqueue_block_editor_assets', 'classtto_block_editor_script' );
  *
  * @link https://git.io/vWdr2
  */
-function classtto_skip_link_focus_fix() {
+function ctto_skip_link_focus_fix() {
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
@@ -508,7 +508,7 @@ function classtto_skip_link_focus_fix() {
 		<?php
 	}
 }
-add_action( 'wp_print_footer_scripts', 'classtto_skip_link_focus_fix' );
+add_action( 'wp_print_footer_scripts', 'ctto_skip_link_focus_fix' );
 
 /**
  * Enqueue non-latin language styles.
@@ -517,20 +517,20 @@ add_action( 'wp_print_footer_scripts', 'classtto_skip_link_focus_fix' );
  *
  * @return void
  */
-function classtto_non_latin_languages() {
-	$custom_css = classtto_get_non_latin_css( 'front-end' );
+function ctto_non_latin_languages() {
+	$custom_css = ctto_get_non_latin_css( 'front-end' );
 
 	if ( $custom_css ) {
-		wp_add_inline_style( 'twenty-twenty-one-style', $custom_css );
+		wp_add_inline_style( 'ctto-style', $custom_css );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'classtto_non_latin_languages' );
+add_action( 'wp_enqueue_scripts', 'ctto_non_latin_languages' );
 
 // SVG Icons class.
-require get_template_directory() . '/classes/class-tto-svg-icons.php';
+require get_template_directory() . '/classes/class-ctto-svg-icons.php';
 
 // Custom color classes.
-require get_template_directory() . '/classes/class-tto-custom-colors.php';
+require get_template_directory() . '/classes/class-ctto-custom-colors.php';
 new Class_TTO_Custom_Colors();
 
 // Enhance the theme by hooking into WordPress.
@@ -543,7 +543,7 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/classes/class-tto-customize.php';
+require get_template_directory() . '/classes/class-ctto-customize.php';
 new Class_TTO_Customize();
 
 // Block Patterns.
@@ -553,7 +553,7 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory() . '/classes/class-tto-dark-mode.php';
+require_once get_template_directory() . '/classes/class-ctto-dark-mode.php';
 new Class_TTO_Dark_Mode();
 
 /**
@@ -563,9 +563,9 @@ new Class_TTO_Dark_Mode();
  *
  * @return void
  */
-function classtto_customize_preview_init() {
+function ctto_customize_preview_init() {
 	wp_enqueue_script(
-		'classtto-customize-helpers',
+		'ctto-customize-helpers',
 		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
 		array(),
 		wp_get_theme()->get( 'Version' ),
@@ -573,14 +573,14 @@ function classtto_customize_preview_init() {
 	);
 
 	wp_enqueue_script(
-		'classtto-customize-preview',
+		'ctto-customize-preview',
 		get_theme_file_uri( '/assets/js/customize-preview.js' ),
-		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'classtto-customize-helpers' ),
+		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'ctto-customize-helpers' ),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'customize_preview_init', 'classtto_customize_preview_init' );
+add_action( 'customize_preview_init', 'ctto_customize_preview_init' );
 
 /**
  * Enqueue scripts for the customizer.
@@ -589,17 +589,17 @@ add_action( 'customize_preview_init', 'classtto_customize_preview_init' );
  *
  * @return void
  */
-function classtto_customize_controls_enqueue_scripts() {
+function ctto_customize_controls_enqueue_scripts() {
 
 	wp_enqueue_script(
-		'classtto-customize-helpers',
+		'ctto-customize-helpers',
 		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
 		array(),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'customize_controls_enqueue_scripts', 'classtto_customize_controls_enqueue_scripts' );
+add_action( 'customize_controls_enqueue_scripts', 'ctto_customize_controls_enqueue_scripts' );
 
 /**
  * Calculate classes for the main <html> element.
@@ -608,7 +608,7 @@ add_action( 'customize_controls_enqueue_scripts', 'classtto_customize_controls_e
  *
  * @return void
  */
-function classtto_the_html_classes() {
+function ctto_the_html_classes() {
 	/**
 	 * Filters the classes for the main <html> element.
 	 *
@@ -616,7 +616,7 @@ function classtto_the_html_classes() {
 	 *
 	 * @param string The list of classes. Default empty string.
 	 */
-	$classes = apply_filters( 'classtto_html_classes', '' );
+	$classes = apply_filters( 'ctto_html_classes', '' );
 	if ( ! $classes ) {
 		return;
 	}
@@ -630,7 +630,7 @@ function classtto_the_html_classes() {
  *
  * @return void
  */
-function classtto_add_ie_class() {
+function ctto_add_ie_class() {
 	?>
 	<script>
 	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
@@ -639,4 +639,4 @@ function classtto_add_ie_class() {
 	</script>
 	<?php
 }
-add_action( 'wp_footer', 'classtto_add_ie_class' );
+add_action( 'wp_footer', 'ctto_add_ie_class' );

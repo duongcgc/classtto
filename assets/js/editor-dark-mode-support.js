@@ -1,8 +1,8 @@
-/* global classttoIsDarkMode, setTimeout */
+/* global cttoIsDarkMode, setTimeout */
 
 // Check the color scheme preference and inject the classes if necessary.
-if ( document.body.classList.contains( 'classtto-supports-dark-theme' ) ) {
-	classttoDarkModeEditorInit();
+if ( document.body.classList.contains( 'ctto-supports-dark-theme' ) ) {
+	cttoDarkModeEditorInit();
 }
 
 /**
@@ -15,20 +15,20 @@ if ( document.body.classList.contains( 'classtto-supports-dark-theme' ) ) {
  * @param {number} attempt Track the number of tries
  * @return {void}
  */
-function classttoDarkModeEditorInit( attempt ) {
+function cttoDarkModeEditorInit( attempt ) {
 	var container = document.querySelector( '.block-editor__typewriter' ),
 		maxAttempts = 8;
 
 	// Set the initial attempt if it's undefined.
 	attempt = attempt || 0;
 
-	if ( classttoIsDarkMode() ) {
+	if ( cttoIsDarkMode() ) {
 		if ( null === container ) {
 			// Try again.
 			if ( attempt < maxAttempts ) {
 				setTimeout(
 					function() {
-						classttoDarkModeEditorInit( attempt + 1 );
+						cttoDarkModeEditorInit( attempt + 1 );
 					},
 					// Double the delay, give the server some time to breathe.
 					25 * Math.pow( 2, attempt )

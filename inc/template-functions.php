@@ -15,7 +15,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function classtto_body_classes( $classes ) {
+function ctto_body_classes( $classes ) {
 
 	// Helps detect if JS is enabled or not.
 	$classes[] = 'no-js';
@@ -35,7 +35,7 @@ function classtto_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'classtto_body_classes' );
+add_filter( 'body_class', 'ctto_body_classes' );
 
 /**
  * Adds custom class to the array of posts classes.
@@ -45,12 +45,12 @@ add_filter( 'body_class', 'classtto_body_classes' );
  * @param array $classes An array of CSS classes.
  * @return array
  */
-function classtto_post_classes( $classes ) {
+function ctto_post_classes( $classes ) {
 	$classes[] = 'entry';
 
 	return $classes;
 }
-add_filter( 'post_class', 'classtto_post_classes', 10, 3 );
+add_filter( 'post_class', 'ctto_post_classes', 10, 3 );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
@@ -59,12 +59,12 @@ add_filter( 'post_class', 'classtto_post_classes', 10, 3 );
  *
  * @return void
  */
-function classtto_pingback_header() {
+function ctto_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'classtto_pingback_header' );
+add_action( 'wp_head', 'ctto_pingback_header' );
 
 /**
  * Remove the `no-js` class from body if JS is supported.
@@ -73,10 +73,10 @@ add_action( 'wp_head', 'classtto_pingback_header' );
  *
  * @return void
  */
-function classtto_supports_js() {
+function ctto_supports_js() {
 	echo '<script>document.body.classList.remove("no-js");</script>';
 }
-add_action( 'wp_footer', 'classtto_supports_js' );
+add_action( 'wp_footer', 'ctto_supports_js' );
 
 /**
  * Changes comment form default fields.
@@ -86,14 +86,14 @@ add_action( 'wp_footer', 'classtto_supports_js' );
  * @param array $defaults The form defaults.
  * @return array
  */
-function classtto_comment_form_defaults( $defaults ) {
+function ctto_comment_form_defaults( $defaults ) {
 
 	// Adjust height of comment form.
 	$defaults['comment_field'] = preg_replace( '/rows="\d+"/', 'rows="5"', $defaults['comment_field'] );
 
 	return $defaults;
 }
-add_filter( 'comment_form_defaults', 'classtto_comment_form_defaults' );
+add_filter( 'comment_form_defaults', 'ctto_comment_form_defaults' );
 
 /**
  * Determines if post thumbnail can be displayed.
@@ -102,7 +102,7 @@ add_filter( 'comment_form_defaults', 'classtto_comment_form_defaults' );
  *
  * @return bool
  */
-function classtto_can_show_post_thumbnail() {
+function ctto_can_show_post_thumbnail() {
 	/**
 	 * Filters whether post thumbnail can be displayed.
 	 *
@@ -111,7 +111,7 @@ function classtto_can_show_post_thumbnail() {
 	 * @param bool $show_post_thumbnail Whether to show post thumbnail.
 	 */
 	return apply_filters(
-		'classtto_can_show_post_thumbnail',
+		'ctto_can_show_post_thumbnail',
 		! post_password_required() && ! is_attachment() && has_post_thumbnail()
 	);
 }
@@ -123,7 +123,7 @@ function classtto_can_show_post_thumbnail() {
  *
  * @return int
  */
-function classtto_get_avatar_size() {
+function ctto_get_avatar_size() {
 	return 60;
 }
 
@@ -132,10 +132,10 @@ function classtto_get_avatar_size() {
  *
  * @since Class TTO 1.0
  */
-function classtto_continue_reading_text() {
+function ctto_continue_reading_text() {
 	$continue_reading = sprintf(
 		/* translators: %s: Name of current post. */
-		esc_html__( 'Continue reading %s', 'classtto' ),
+		esc_html__( 'Continue reading %s', 'ctto' ),
 		the_title( '<span class="screen-reader-text">', '</span>', false )
 	);
 
@@ -147,30 +147,30 @@ function classtto_continue_reading_text() {
  *
  * @since Class TTO 1.0
  */
-function classtto_continue_reading_link_excerpt() {
+function ctto_continue_reading_link_excerpt() {
 	if ( ! is_admin() ) {
-		return '&hellip; <a class="more-link" href="' . esc_url( get_permalink() ) . '">' . classtto_continue_reading_text() . '</a>';
+		return '&hellip; <a class="more-link" href="' . esc_url( get_permalink() ) . '">' . ctto_continue_reading_text() . '</a>';
 	}
 }
 
 // Filter the excerpt more link.
-add_filter( 'excerpt_more', 'classtto_continue_reading_link_excerpt' );
+add_filter( 'excerpt_more', 'ctto_continue_reading_link_excerpt' );
 
 /**
  * Creates the continue reading link.
  *
  * @since Class TTO 1.0
  */
-function classtto_continue_reading_link() {
+function ctto_continue_reading_link() {
 	if ( ! is_admin() ) {
-		return '<div class="more-link-container"><a class="more-link" href="' . esc_url( get_permalink() ) . '#more-' . esc_attr( get_the_ID() ) . '">' . classtto_continue_reading_text() . '</a></div>';
+		return '<div class="more-link-container"><a class="more-link" href="' . esc_url( get_permalink() ) . '#more-' . esc_attr( get_the_ID() ) . '">' . ctto_continue_reading_text() . '</a></div>';
 	}
 }
 
 // Filter the excerpt more link.
-add_filter( 'the_content_more_link', 'classtto_continue_reading_link' );
+add_filter( 'the_content_more_link', 'ctto_continue_reading_link' );
 
-if ( ! function_exists( 'classtto_post_title' ) ) {
+if ( ! function_exists( 'ctto_post_title' ) ) {
 	/**
 	 * Adds a title to posts and pages that are missing titles.
 	 *
@@ -179,11 +179,11 @@ if ( ! function_exists( 'classtto_post_title' ) ) {
 	 * @param string $title The title.
 	 * @return string
 	 */
-	function classtto_post_title( $title ) {
-		return '' === $title ? esc_html_x( 'Untitled', 'Added to posts and pages that are missing titles', 'classtto' ) : $title;
+	function ctto_post_title( $title ) {
+		return '' === $title ? esc_html_x( 'Untitled', 'Added to posts and pages that are missing titles', 'ctto' ) : $title;
 	}
 }
-add_filter( 'the_title', 'classtto_post_title' );
+add_filter( 'the_title', 'ctto_post_title' );
 
 /**
  * Gets the SVG code for a given icon.
@@ -195,7 +195,7 @@ add_filter( 'the_title', 'classtto_post_title' );
  * @param int    $size  The icon size in pixels.
  * @return string
  */
-function classtto_get_icon_svg( $group, $icon, $size = 24 ) {
+function ctto_get_icon_svg( $group, $icon, $size = 24 ) {
 	return Class_TTO_SVG_Icons::get_svg( $group, $icon, $size );
 }
 
@@ -207,12 +207,12 @@ function classtto_get_icon_svg( $group, $icon, $size = 24 ) {
  * @param string $calendar_output The generated HTML of the calendar.
  * @return string
  */
-function classtto_change_calendar_nav_arrows( $calendar_output ) {
-	$calendar_output = str_replace( '&laquo; ', is_rtl() ? classtto_get_icon_svg( 'ui', 'arrow_right' ) : classtto_get_icon_svg( 'ui', 'arrow_left' ), $calendar_output );
-	$calendar_output = str_replace( ' &raquo;', is_rtl() ? classtto_get_icon_svg( 'ui', 'arrow_left' ) : classtto_get_icon_svg( 'ui', 'arrow_right' ), $calendar_output );
+function ctto_change_calendar_nav_arrows( $calendar_output ) {
+	$calendar_output = str_replace( '&laquo; ', is_rtl() ? ctto_get_icon_svg( 'ui', 'arrow_right' ) : ctto_get_icon_svg( 'ui', 'arrow_left' ), $calendar_output );
+	$calendar_output = str_replace( ' &raquo;', is_rtl() ? ctto_get_icon_svg( 'ui', 'arrow_left' ) : ctto_get_icon_svg( 'ui', 'arrow_right' ), $calendar_output );
 	return $calendar_output;
 }
-add_filter( 'get_calendar', 'classtto_change_calendar_nav_arrows' );
+add_filter( 'get_calendar', 'ctto_change_calendar_nav_arrows' );
 
 /**
  * Get custom CSS.
@@ -224,7 +224,7 @@ add_filter( 'get_calendar', 'classtto_change_calendar_nav_arrows' );
  * @param string $type Whether to return CSS for the "front-end", "block-editor", or "classic-editor".
  * @return string
  */
-function classtto_get_non_latin_css( $type = 'front-end' ) {
+function ctto_get_non_latin_css( $type = 'front-end' ) {
 
 	// Fetch site locale.
 	$locale = get_bloginfo( 'language' );
@@ -237,7 +237,7 @@ function classtto_get_non_latin_css( $type = 'front-end' ) {
 	 * @param array $font_family An array of locales and font families.
 	 */
 	$font_family = apply_filters(
-		'classtto_get_localized_font_family_types',
+		'ctto_get_localized_font_family_types',
 		array(
 
 			// Arabic.
@@ -313,7 +313,7 @@ function classtto_get_non_latin_css( $type = 'front-end' ) {
 	 * @param array $elements An array of elements for "front-end", "block-editor", or "classic-editor".
 	 */
 	$elements = apply_filters(
-		'classtto_get_localized_font_family_elements',
+		'ctto_get_localized_font_family_elements',
 		array(
 			'front-end'      => array( 'body', 'input', 'textarea', 'button', '.button', '.faux-button', '.wp-block-button__link', '.wp-block-file__button', '.has-drop-cap:not(:focus)::first-letter', '.entry-content .wp-block-archives', '.entry-content .wp-block-categories', '.entry-content .wp-block-cover-image', '.entry-content .wp-block-latest-comments', '.entry-content .wp-block-latest-posts', '.entry-content .wp-block-pullquote', '.entry-content .wp-block-quote.is-large', '.entry-content .wp-block-quote.is-style-large', '.entry-content .wp-block-archives *', '.entry-content .wp-block-categories *', '.entry-content .wp-block-latest-posts *', '.entry-content .wp-block-latest-comments *', '.entry-content p', '.entry-content ol', '.entry-content ul', '.entry-content dl', '.entry-content dt', '.entry-content cite', '.entry-content figcaption', '.entry-content .wp-caption-text', '.comment-content p', '.comment-content ol', '.comment-content ul', '.comment-content dl', '.comment-content dt', '.comment-content cite', '.comment-content figcaption', '.comment-content .wp-caption-text', '.widget_text p', '.widget_text ol', '.widget_text ul', '.widget_text dl', '.widget_text dt', '.widget-content .rssSummary', '.widget-content cite', '.widget-content figcaption', '.widget-content .wp-caption-text' ),
 			'block-editor'   => array( '.editor-styles-wrapper > *', '.editor-styles-wrapper p', '.editor-styles-wrapper ol', '.editor-styles-wrapper ul', '.editor-styles-wrapper dl', '.editor-styles-wrapper dt', '.editor-post-title__block .editor-post-title__input', '.editor-styles-wrapper .wp-block h1', '.editor-styles-wrapper .wp-block h2', '.editor-styles-wrapper .wp-block h3', '.editor-styles-wrapper .wp-block h4', '.editor-styles-wrapper .wp-block h5', '.editor-styles-wrapper .wp-block h6', '.editor-styles-wrapper .has-drop-cap:not(:focus)::first-letter', '.editor-styles-wrapper cite', '.editor-styles-wrapper figcaption', '.editor-styles-wrapper .wp-caption-text' ),
@@ -327,12 +327,12 @@ function classtto_get_non_latin_css( $type = 'front-end' ) {
 	}
 
 	// Include file if function doesn't exist.
-	if ( ! function_exists( 'classtto_generate_css' ) ) {
+	if ( ! function_exists( 'ctto_generate_css' ) ) {
 		require_once get_theme_file_path( 'inc/custom-css.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	// Return the specified styles.
-	return classtto_generate_css( // @phpstan-ignore-line.
+	return ctto_generate_css( // @phpstan-ignore-line.
 		implode( ',', $elements[ $type ] ),
 		'font-family',
 		implode( ',', $font_family[ $locale ] ),
@@ -353,7 +353,7 @@ function classtto_get_non_latin_css( $type = 'front-end' ) {
  * @param int         $instances  How many instances of the block will be printed (max). Default  1.
  * @return bool Returns true if a block was located & printed, otherwise false.
  */
-function classtto_print_first_instance_of_block( $block_name, $content = null, $instances = 1 ) {
+function ctto_print_first_instance_of_block( $block_name, $content = null, $instances = 1 ) {
 	$instances_count = 0;
 	$blocks_content  = '';
 
@@ -416,16 +416,16 @@ function classtto_print_first_instance_of_block( $block_name, $content = null, $
  * @param int|WP_Post $post   Optional. Post ID or WP_Post object. Default is global $post.
  * @return string HTML content for password form for password protected post.
  */
-function classtto_password_form( $output, $post = 0 ) {
+function ctto_password_form( $output, $post = 0 ) {
 	$post   = get_post( $post );
 	$label  = 'pwbox-' . ( empty( $post->ID ) ? wp_rand() : $post->ID );
-	$output = '<p class="post-password-message">' . esc_html__( 'This content is password protected. Please enter a password to view.', 'classtto' ) . '</p>
+	$output = '<p class="post-password-message">' . esc_html__( 'This content is password protected. Please enter a password to view.', 'ctto' ) . '</p>
 	<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">
-	<label class="post-password-form__label" for="' . esc_attr( $label ) . '">' . esc_html_x( 'Password', 'Post password form', 'classtto' ) . '</label><input class="post-password-form__input" name="post_password" id="' . esc_attr( $label ) . '" type="password" size="20" /><input type="submit" class="post-password-form__submit" name="' . esc_attr_x( 'Submit', 'Post password form', 'classtto' ) . '" value="' . esc_attr_x( 'Enter', 'Post password form', 'classtto' ) . '" /></form>
+	<label class="post-password-form__label" for="' . esc_attr( $label ) . '">' . esc_html_x( 'Password', 'Post password form', 'ctto' ) . '</label><input class="post-password-form__input" name="post_password" id="' . esc_attr( $label ) . '" type="password" size="20" /><input type="submit" class="post-password-form__submit" name="' . esc_attr_x( 'Submit', 'Post password form', 'ctto' ) . '" value="' . esc_attr_x( 'Enter', 'Post password form', 'ctto' ) . '" /></form>
 	';
 	return $output;
 }
-add_filter( 'the_password_form', 'classtto_password_form', 10, 2 );
+add_filter( 'the_password_form', 'ctto_password_form', 10, 2 );
 
 /**
  * Filters the list of attachment image attributes.
@@ -439,7 +439,7 @@ add_filter( 'the_password_form', 'classtto_password_form', 10, 2 );
  *                                 an array of width and height values in pixels (in that order).
  * @return string[] The filtered attributes for the image markup.
  */
-function classtto_get_attachment_image_attributes( $attr, $attachment, $size ) {
+function ctto_get_attachment_image_attributes( $attr, $attachment, $size ) {
 
 	if ( is_admin() ) {
 		return $attr;
@@ -472,4 +472,4 @@ function classtto_get_attachment_image_attributes( $attr, $attachment, $size ) {
 
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'classtto_get_attachment_image_attributes', 10, 3 );
+add_filter( 'wp_get_attachment_image_attributes', 'ctto_get_attachment_image_attributes', 10, 3 );

@@ -5,21 +5,21 @@ function toggleDarkMode() { // jshint ignore:line
 		toggler.setAttribute( 'aria-pressed', 'true' );
 		document.documentElement.classList.add( 'is-dark-theme' );
 		document.body.classList.add( 'is-dark-theme' );
-		window.localStorage.setItem( 'classttoDarkMode', 'yes' );
+		window.localStorage.setItem( 'cttoDarkMode', 'yes' );
 	} else {
 		toggler.setAttribute( 'aria-pressed', 'false' );
 		document.documentElement.classList.remove( 'is-dark-theme' );
 		document.body.classList.remove( 'is-dark-theme' );
-		window.localStorage.setItem( 'classttoDarkMode', 'no' );
+		window.localStorage.setItem( 'cttoDarkMode', 'no' );
 	}
 }
 
-function classttoIsDarkMode() {
+function cttoIsDarkMode() {
 	var isDarkMode = window.matchMedia( '(prefers-color-scheme: dark)' ).matches;
 
-	if ( 'yes' === window.localStorage.getItem( 'classttoDarkMode' ) ) {
+	if ( 'yes' === window.localStorage.getItem( 'cttoDarkMode' ) ) {
 		isDarkMode = true;
-	} else if ( 'no' === window.localStorage.getItem( 'classttoDarkMode' ) ) {
+	} else if ( 'no' === window.localStorage.getItem( 'cttoDarkMode' ) ) {
 		isDarkMode = false;
 	}
 
@@ -28,7 +28,7 @@ function classttoIsDarkMode() {
 
 function darkModeInitialLoad() {
 	var toggler = document.getElementById( 'dark-mode-toggler' ),
-		isDarkMode = classttoIsDarkMode();
+		isDarkMode = cttoIsDarkMode();
 
 	if ( isDarkMode ) {
 		document.documentElement.classList.add( 'is-dark-theme' );

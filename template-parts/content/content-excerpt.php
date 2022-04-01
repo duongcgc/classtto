@@ -20,6 +20,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer default-max-width">
-		<?php classtto_entry_meta_footer(); ?>
+		<?php ctto_entry_meta_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-${ID} -->
