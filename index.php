@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -14,4 +15,6 @@
  * @since Class TTO 1.0
  */
 
- 
+// Render template document
+
+\Classtto\Document::instance();
