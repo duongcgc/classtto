@@ -54,9 +54,8 @@ function ctto_define_constants() {
         define('CTTO_THEME_URL', trailingslashit(get_template_directory_uri()));
     }
 
-    define('CTTO_URL', CTTO_THEME_URL . 'lib/');
-    define('CTTO_CLASSES_URL', CTTO_URL . 'classes/');
-    define('CTTO_ASSETS_URL', CTTO_URL . 'assets/');
+    define('CTTO_CLASSES_URL', CTTO_THEME_URL . 'classes/');
+    define('CTTO_ASSETS_URL', CTTO_THEME_URL . 'assets/');
     define('CTTO_SASS_URL', CTTO_ASSETS_URL . 'sass/');
     define('CTTO_JS_URL', CTTO_ASSETS_URL . 'js/');
     define('CTTO_IMAGE_URL', CTTO_ASSETS_URL . 'images/');
@@ -65,7 +64,7 @@ function ctto_define_constants() {
     define('CTTO_ADMIN_PATH', CTTO_INC_PATH . 'admin/');
 
     // Define admin url.
-    define('CTTO_ADMIN_URL', CTTO_URL . 'admin/');
+    define('CTTO_ADMIN_URL', CTTO_THEME_URL . 'admin/');
     define('CTTO_ADMIN_ASSETS_URL', CTTO_ADMIN_URL . 'assets/');
     define('CTTO_ADMIN_JS_URL', CTTO_ADMIN_ASSETS_URL . 'js/');
 
@@ -93,7 +92,7 @@ function ctto_load_dependencies() {
     do_action('ctto_before_load_classes');
 
     $components = [
-        // 'classes',
+        'classes',
         // 'compatibility',
         // 'actions',
         // 'html',
@@ -120,7 +119,7 @@ function ctto_load_dependencies() {
     }
 
     // Load the necessary Classtto components.
-    // ctto_load_classes_components($components);
+    ctto_load_classes_components($components);
 
     // Add third party styles and scripts compiler support.
     // ctto_add_classes_component_support('wp_styles_compiler');
