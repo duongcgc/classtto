@@ -41,6 +41,7 @@ function ctto_define_constants() {
     define('CTTO_LANGUAGES_PATH', CTTO_THEME_PATH . 'languages/');
     define('CTTO_INC_PATH', CTTO_THEME_PATH . 'inc/');
     define('CTTO_CLASSES_PATH', CTTO_INC_PATH . 'classes/');
+    define('CTTO_FUNCS_PATH', CTTO_INC_PATH . 'functions/');
     define('CTTO_BUILDER_PATH', CTTO_INC_PATH . 'builder/');           // builders templates
     define('CTTO_RENDER_PATH', CTTO_INC_PATH . 'render/');             // loaders templates
     define('CTTO_TEMPLATES_PATH', CTTO_THEME_PATH . 'templates/');
@@ -82,7 +83,8 @@ add_action('ctto_init', 'ctto_load_dependencies', 5);
  * @return void
  */
 function ctto_load_dependencies() {
-    require_once CTTO_CLASSES_PATH . 'init.php';
+
+    require_once CTTO_CLASSES_PATH . 'init.php';    // init classes
 
     /**
      * Fires before Classtto CLASSES loads.
@@ -95,7 +97,6 @@ function ctto_load_dependencies() {
         'classes',
         // 'compatibility',
         // 'actions',
-        // 'html',
         // 'post-meta',
         // 'image',
         // 'fonts',
@@ -119,7 +120,7 @@ function ctto_load_dependencies() {
     }
 
     // Load the necessary Classtto components.
-    ctto_load_classes_components($components);
+    ctto_load_components($components);
 
     // Add third party styles and scripts compiler support.
     // ctto_add_classes_component_support('wp_styles_compiler');
@@ -132,6 +133,8 @@ function ctto_load_dependencies() {
      */
     do_action('ctto_after_load_classes');
 }
+
+
 
 /**
  * Fires before Classtto loads.

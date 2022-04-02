@@ -35,10 +35,10 @@ if (!defined('CTTO_INC_PATH')) {
 define('CTTO_INC_ADMIN_PATH', CTTO_THEME_PATH . 'admin/');
 
 // Load dependencies here, as these are used further down.
-require_once CTTO_INC_PATH . 'components.php';
-require_once CTTO_INC_PATH . 'helper-functions.php';
-require_once CTTO_INC_PATH . 'template-functions.php';
-require_once CTTO_INC_PATH . 'template-tags.php';
+require_once CTTO_INC_PATH . 'components.php';              // components loading
+require_once CTTO_FUNCS_PATH . 'helper.php';                // ultilities functions
+require_once CTTO_FUNCS_PATH . 'custom-tags.php';           // template tags
+require_once CTTO_FUNCS_PATH . 'template-hooks.php';        // template functions
 
 // Url.
 if (!defined('CTTO_INC_URL')) {
