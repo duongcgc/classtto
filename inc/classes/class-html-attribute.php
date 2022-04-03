@@ -7,6 +7,8 @@
  * @since   1.0.0
  */
 
+namespace Classtto;
+
 /**
  * Control a HTML attribute.
  *

@@ -104,7 +104,7 @@ class Html {
 			return;
 		}
 
-		if ( self::_ctto_is_html_dev_mode() ) {
+		if ( self::ctto_is_html_dev_mode() ) {
 			$id     = esc_attr( $id );
 			$output = "<!-- open output: $id -->" . $output . "<!-- close output: $id -->";
 		}
@@ -124,7 +124,7 @@ class Html {
 	 */
 	public static function ctto_output_e( $id, $output ) {
 		$args = func_get_args();
-		echo call_user_func_array( 'ctto_output', $args ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped -- Escaped in ctto_output.
+		echo call_user_func_array( array( self::$instance, 'ctto_output' ), $args ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped -- Escaped in ctto_output.
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Html {
 	 *
 	 * @param string $id The output's ID.
 	 *
-	 * @return bool|_CTTO_Anonymous_Filters
+	 * @return bool|Anonymous_Filters
 	 */
 	public static function ctto_remove_output( $id ) {
 		return add_filter( $id . '_output', false, 99999999 );
@@ -200,7 +200,7 @@ class Html {
 
 		// Build the opening tag when tag is available.
 		if ( $tag ) {
-			$output .= '<' . esc_attr( $tag ) . ' ' . call_user_func_array( 'ctto_add_attributes', $attributes_args ) . ( self::_ctto_is_html_dev_mode() ? ' data-markup-id="' . esc_attr( $id ) . '"' : null ) . ( $_ctto_is_selfclose_markup ? '/' : '' ) . '>';
+			$output .= '<' . esc_attr( $tag ) . ' ' . call_user_func_array( 'ctto_add_attributes', $attributes_args ) . ( self::ctto_is_html_dev_mode() ? ' data-markup-id="' . esc_attr( $id ) . '"' : null ) . ( $_ctto_is_selfclose_markup ? '/' : '' ) . '>';
 		}
 
 		// Set and then fire the after action hook.
@@ -437,11 +437,11 @@ class Html {
 		$args = func_get_args();
 		unset( $args[0] );
 
-		_ctto_add_anonymous_action( $id . '_before_markup', array( 'ctto_open_markup', $args ), 9999 );
+		\Classtto\Anonymous_Action::add_anonymous_action( $id . '_before_markup', array( 'ctto_open_markup', $args ), 9999 );
 
 		unset( $args[3] );
 
-		_ctto_add_anonymous_action( $id . '_after_markup', array( 'ctto_close_markup', $args ), 1 );
+		\Classtto\Anonymous_Action::add_anonymous_action( $id . '_after_markup', array( 'ctto_close_markup', $args ), 1 );
 
 		return true;
 	}
@@ -481,11 +481,11 @@ class Html {
 		$args = func_get_args();
 		unset( $args[0] );
 
-		_ctto_add_anonymous_action( $id . '_prepend_markup', array( 'ctto_open_markup', $args ), 1 );
+		\Classtto\Anonymous_Action::add_anonymous_action( $id . '_prepend_markup', array( 'ctto_open_markup', $args ), 1 );
 
 		unset( $args[3] );
 
-		_ctto_add_anonymous_action( $id . '_append_markup', array( 'ctto_close_markup', $args ), 9999 );
+		\Classtto\Anonymous_Action::add_anonymous_action( $id . '_append_markup', array( 'ctto_close_markup', $args ), 9999 );
 
 		return true;
 	}
@@ -566,7 +566,7 @@ class Html {
 	 * @return _CTTO_Attribute
 	 */
 	public static function ctto_add_attribute( $id, $attribute, $value ) {
-		$attribute = new _CTTO_Attribute( $id, $attribute, $value );
+		$attribute = new HTML_Attribute( $id, $attribute, $value );
 
 		return $attribute->init( 'add' );
 	}
@@ -593,7 +593,7 @@ class Html {
 	 * @return _CTTO_Attribute
 	 */
 	public static function ctto_replace_attribute( $id, $attribute, $value, $new_value = null ) {
-		$attribute = new _CTTO_Attribute( $id, $attribute, $value, $new_value );
+		$attribute = new HTML_Attribute( $id, $attribute, $value, $new_value );
 
 		return $attribute->init( 'replace' );
 	}
@@ -616,7 +616,7 @@ class Html {
 	 * @return _CTTO_Attribute
 	 */
 	public static function ctto_remove_attribute( $id, $attribute, $value = null ) {
-		$attribute = new _CTTO_Attribute( $id, $attribute, $value, '' );
+		$attribute = new HTML_Attribute( $id, $attribute, $value, '' );
 
 		return $attribute->init( 'remove' );
 	}
@@ -630,7 +630,7 @@ class Html {
 	 *
 	 * @return bool
 	 */
-	public function _ctto_is_html_dev_mode() {
+	public static function ctto_is_html_dev_mode() {
 
 		if ( defined( 'CTTO_HTML_DEV_MODE' ) ) {
 			return (bool) CTTO_HTML_DEV_MODE;

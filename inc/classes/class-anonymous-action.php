@@ -7,6 +7,8 @@
  * @since   1.0.0
  */
 
+namespace Classtto;
+
 /**
  * Anonymous Action.
  *
@@ -68,7 +70,7 @@ final class Anonymous_Action {
 
 		$this->callback = $callback;
 
-		add_action( $hook, array( $this, 'callback' ), $priority, $number_args );		
+		add_action( $hook, array( $this, 'callback' ), $priority, $number_args );
 
 		/**
 		 * Fires when the anonymous_action loads.
@@ -96,5 +98,33 @@ final class Anonymous_Action {
 	 */
 	public function callback() {
 		echo call_user_func_array( $this->callback[0], $this->callback[1] ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped -- The callback handles escaping its output, as Jupiter does not know what HTML or content will be passed back to it.
+	}
+
+	/**
+	 * Add anonymous callback using a class since php 5.2 is still supported.
+	 *
+	 * @since  1.0.0
+	 * @ignore
+	 * @access private
+	 *
+	 * @param string $hook        The name of the action to which the $callback is hooked.
+	 * @param array  $callback    The callback to register to the given $hook and arguments to pass.
+	 * @param int    $priority    Optional. Used to specify the order in which the functions
+	 *                            associated with a particular action are executed. Default 10.
+	 *                            Lower numbers correspond with earlier execution,
+	 *                            and functions with the same priority are executed
+	 *                            in the order in which they were added to the action.
+	 * @param int    $number_args Optional. The number of arguments the function accepts. Default 1.
+	 *
+	 * @return Anonymous_Action
+	 */
+	public static function add_anonymous_action( $hook, array $callback, $priority = 10, $number_args = 1 ) {
+
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self( $hook, $callback, $priority, $number_args );
+		}
+
+		return self::$instance;
+
 	}
 }
