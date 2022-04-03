@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The Classtto Component defines which INC components of the framework are loaded.
  *
@@ -26,115 +25,114 @@
  * @SuppressWarnings(PHPMD.ElseExpression)
  * @SuppressWarnings(PHPMD.NPathComplexity)
  */
-function ctto_load_components($components) {
-    static $loaded = array();
+function ctto_load_components( $components ) {
+	static $loaded = array();
 
-    $root = CTTO_INC_PATH;
+	$root = CTTO_INC_PATH;
 
-    $common = array(
-        'classes' => [
-            $root . 'classes/init.php',
-            $root . 'classes/class-ctto-template.php',
-            $root . 'classes/class-ctto-html.php',
-            $root . 'classes/class-ctto-image.php',
-        ],        
+	$common = array(
+		'classes'         => array(
+			$root . 'classes/init.php',
+			$root . 'classes/class-ctto-template.php',
+			$root . 'classes/class-ctto-html.php',
+			$root . 'classes/class-ctto-image.php',
+		),
+		'compatibility'   => array(
+			$root . 'compatibility/functions.php',
+			$root . 'compatibility/class.php',
+		),
 
-        'compatibility' => [
-            $root . 'compatibility/functions.php',
-            $root . 'compatibility/class.php',
-        ],
-        
-        'actions'       => $root . 'actions/functions.php',
-        'filters'       => $root . 'filters/functions.php',
-        'fonts'         => $root . 'fonts/class.php',
-        'customizer'    => [
-            $root . 'customizer/class-utils.php',
-            $root . 'customizer/functions.php',
-        ],
-        'custom-fields'     => [
-            $root . 'custom-fields/functions.php',
-            $root . 'custom-fields/class.php',
-        ],
-        'layout'          => $root . 'layout/functions.php',
-        'header'          => $root . 'header/functions.php',
-        'widget'          => $root . 'widget/functions.php',
-        'menu'            => $root . 'menu/class.php',
-        'footer'          => $root . 'footer/functions.php',
-        'woocommerce'     => $root . 'woocommerce/functions.php',
-        'elementor'       => $root . 'elementor/functions.php',
-        'lazy-load'       => $root . 'lazy-load/functions.php',
-        'events-calendar' => $root . 'events-calendar/functions.php',
-    );
+		'actions'         => $root . 'actions/functions.php',
+		'filters'         => $root . 'filters/functions.php',
+		'fonts'           => $root . 'fonts/class.php',
+		'customizer'      => array(
+			$root . 'customizer/class-utils.php',
+			$root . 'customizer/functions.php',
+		),
+		'custom-fields'   => array(
+			$root . 'custom-fields/functions.php',
+			$root . 'custom-fields/class.php',
+		),
+		'layout'          => $root . 'layout/functions.php',
+		'header'          => $root . 'header/functions.php',
+		'widget'          => $root . 'widget/functions.php',
+		'menu'            => $root . 'menu/class.php',
+		'footer'          => $root . 'footer/functions.php',
+		'woocommerce'     => $root . 'woocommerce/functions.php',
+		'elementor'       => $root . 'elementor/functions.php',
+		'lazy-load'       => $root . 'lazy-load/functions.php',
+		'events-calendar' => $root . 'events-calendar/functions.php',
+	);
 
-    // Only load admin fragments if is_admin() is true.
-    if (is_admin()) {
-        $admin = [
-            'options'    => $root . 'options/functions.php',
-            'elementor'  => $root . 'elementor/functions-admin.php',
-            'api'        => $root . 'api/ajax.php',
-            'onboarding' => $root . 'onboarding/functions.php',
-        ];
-    } else {
-        $admin = [];
-    }
+	// Only load admin fragments if is_admin() is true.
+	if ( is_admin() ) {
+		$admin = array(
+			'options'    => $root . 'options/functions.php',
+			'elementor'  => $root . 'elementor/functions-admin.php',
+			'api'        => $root . 'api/ajax.php',
+			'onboarding' => $root . 'onboarding/functions.php',
+		);
+	} else {
+		$admin = array();
+	}
 
-    // Set dependencies.
-    $dependencies = array(
-        'html'         => array(
-            'filters',
-        ),
-        'fields'       => array(
-            'actions',
-            'html',
-        ),
-        'options'      => 'fields',
-        'post-meta'    => 'fields',
-        'layout'       => 'fields',
-    );
+	// Set dependencies.
+	$dependencies = array(
+		'html'      => array(
+			'filters',
+		),
+		'fields'    => array(
+			'actions',
+			'html',
+		),
+		'options'   => 'fields',
+		'post-meta' => 'fields',
+		'layout'    => 'fields',
+	);
 
-    foreach ((array) $components as $component) {
+	foreach ( (array) $components as $component ) {
 
-        // Stop here if the component is already loaded or doesn't exist.
-        if (in_array($component, $loaded, true) || (!isset($common[$component]) && !isset($admin[$component]))) {
-            continue;
-        }
+		// Stop here if the component is already loaded or doesn't exist.
+		if ( in_array( $component, $loaded, true ) || ( ! isset( $common[ $component ] ) && ! isset( $admin[ $component ] ) ) ) {
+			continue;
+		}
 
-        // Cache loaded component before calling dependencies.
-        $loaded[] = $component;
+		// Cache loaded component before calling dependencies.
+		$loaded[] = $component;
 
-        // Load dependencies.
-        if (array_key_exists($component, $dependencies)) {
-            ctto_load_components($dependencies[$component]);
-        }
+		// Load dependencies.
+		if ( array_key_exists( $component, $dependencies ) ) {
+			ctto_load_components( $dependencies[ $component ] );
+		}
 
-        $_components = array();
+		$_components = array();
 
-        // Add common components.
-        if (isset($common[$component])) {
-            $_components = (array) $common[$component];
-        }
+		// Add common components.
+		if ( isset( $common[ $component ] ) ) {
+			$_components = (array) $common[ $component ];
+		}
 
-        // Add admin components.
-        if (isset($admin[$component])) {
-            $_components = array_merge((array) $_components, (array) $admin[$component]);
-        }
+		// Add admin components.
+		if ( isset( $admin[ $component ] ) ) {
+			$_components = array_merge( (array) $_components, (array) $admin[ $component ] );
+		}
 
-        // Load components.
-        foreach ($_components as $component_path) {
-            require_once $component_path;
-        }
+		// Load components.
+		foreach ( $_components as $component_path ) {
+			require_once $component_path;
+		}
 
-        /**
-         * Fires when an INC component is loaded.
-         *
-         * The dynamic portion of the hook name, $component, refers to the name of the INC component loaded.
-         *
-         * @since 1.0.0
-         */
-        do_action('ctto_loaded_component_' . $component);
-    }
+		/**
+		 * Fires when an INC component is loaded.
+		 *
+		 * The dynamic portion of the hook name, $component, refers to the name of the INC component loaded.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'ctto_loaded_component_' . $component );
+	}
 
-    return true;
+	return true;
 }
 
 /**
@@ -147,20 +145,20 @@ function ctto_load_components($components) {
  * @return bool Will always return true.
  * @SuppressWarnings(PHPMD.ElseExpression)
  */
-function ctto_add_component_support($feature) {
-    global $_ctto_components_support;
+function ctto_add_component_support( $feature ) {
+	global $_ctto_components_support;
 
-    $args = func_get_args();
+	$args = func_get_args();
 
-    if (1 === func_num_args()) {
-        $args = true;
-    } else {
-        $args = array_slice($args, 1);
-    }
+	if ( 1 === func_num_args() ) {
+		$args = true;
+	} else {
+		$args = array_slice( $args, 1 );
+	}
 
-    $_ctto_components_support[$feature] = $args;
+	$_ctto_components_support[ $feature ] = $args;
 
-    return true;
+	return true;
 }
 
 /**
@@ -172,14 +170,14 @@ function ctto_add_component_support($feature) {
  *
  * @return mixed The argument(s) passed.
  */
-function ctto_get_component_support($feature) {
-    global $_ctto_components_support;
+function ctto_get_component_support( $feature ) {
+	global $_ctto_components_support;
 
-    if (!isset($_ctto_components_support[$feature])) {
-        return false;
-    }
+	if ( ! isset( $_ctto_components_support[ $feature ] ) ) {
+		return false;
+	}
 
-    return $_ctto_components_support[$feature];
+	return $_ctto_components_support[ $feature ];
 }
 
 /**
@@ -191,10 +189,10 @@ function ctto_get_component_support($feature) {
  *
  * @return bool Will always return true.
  */
-function ctto_remove_component_support($feature) {
-    global $_ctto_components_support;
-    unset($_ctto_components_support[$feature]);
-    return true;
+function ctto_remove_component_support( $feature ) {
+	global $_ctto_components_support;
+	unset( $_ctto_components_support[ $feature ] );
+	return true;
 }
 
 /**
@@ -205,6 +203,6 @@ function ctto_remove_component_support($feature) {
  */
 global $_ctto_components_support;
 
-if (!isset($_ctto_components_support)) {
-    $_ctto_components_support = array();
+if ( ! isset( $_ctto_components_support ) ) {
+	$_ctto_components_support = array();
 }
