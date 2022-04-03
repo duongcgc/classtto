@@ -34,9 +34,11 @@ function ctto_load_components($components) {
     $common = array(
         'classes' => [
             $root . 'classes/init.php',
-            $root . 'classes/class-ctto-document.php',
+            $root . 'classes/class-ctto-template.php',
             $root . 'classes/class-ctto-html.php',
+            $root . 'classes/class-ctto-image.php',
         ],        
+
         'compatibility' => [
             $root . 'compatibility/functions.php',
             $root . 'compatibility/class.php',
@@ -53,9 +55,7 @@ function ctto_load_components($components) {
             $root . 'custom-fields/functions.php',
             $root . 'custom-fields/class.php',
         ],
-        'image'           => $root . 'image/functions.php',
         'layout'          => $root . 'layout/functions.php',
-        'template'        => $root . 'template/functions.php',
         'header'          => $root . 'header/functions.php',
         'widget'          => $root . 'widget/functions.php',
         'menu'            => $root . 'menu/class.php',

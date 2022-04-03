@@ -17,4 +17,4 @@
 
 // Render template document
 
-\Classtto\Document::instance();
+\Classtto\Template::instance();

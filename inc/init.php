@@ -5,14 +5,14 @@
  *
  * @package Classtto\Framework
  *
- * @since   1.0.0
+ * @since 1.0.0
  */
 
 add_action('ctto_init', 'ctto_define_constants', -1);
 /**
  * Define constants.
  *
- * @since 1.0.0
+ * @since  1.0.0
  * @ignore
  *
  * @return void
@@ -77,14 +77,14 @@ add_action('ctto_init', 'ctto_load_dependencies', 5);
 /**
  * Load dependencies.
  *
- * @since 1.0.0
+ * @since  1.0.0
  * @ignore
  *
  * @return void
  */
 function ctto_load_dependencies() {
 
-    require_once CTTO_CLASSES_PATH . 'init.php';    // init classes
+    include_once CTTO_CLASSES_PATH . 'init.php';    // init classes
 
     /**
      * Fires before Classtto CLASSES loads.
@@ -102,7 +102,6 @@ function ctto_load_dependencies() {
         // 'fonts',
         // 'customizer',
         // 'custom-fields',
-        // 'template',
         // 'layout',
         // 'header',
         // 'menu',
@@ -134,7 +133,78 @@ function ctto_load_dependencies() {
     do_action('ctto_after_load_classes');
 }
 
+add_action('ctto_init', 'ctto_add_theme_support');
+/**
+ * Add theme support.
+ *
+ * @since  1.0.0
+ * @ignore
+ *
+ * @return void
+ */
+function ctto_add_theme_support() {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('automatic-feed-links');
+    add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
+    // Gutenberg.
+    add_theme_support('wp-block-styles');
+    add_theme_support('editor-styles');
+
+    // Jupiter specific.
+    add_theme_support('ctto-default-styling');
+
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-slider');
+    add_theme_support('woocommerce');
+
+    // Define thumbnail image sizes
+    \Classtto\Image::register_image_sizes();
+}
+
+
+add_action('ctto_init', 'ctto_includes');
+/**
+ * Include framework files.
+ *
+ * @since  1.0.0
+ * @ignore
+ *
+ * @return void
+ */
+function ctto_includes() {
+
+    // Include admin.
+    if (is_admin()) {
+        // require_once CTTO_ADMIN_PATH . 'tgmpa/class-tgm-plugin-activation.php';
+        // require_once CTTO_ADMIN_PATH . 'tgmpa/functions.php';
+        // require_once CTTO_ADMIN_PATH . 'assets.php';
+        // require_once CTTO_ADMIN_PATH . 'core-install/core-install.php';
+        // require_once CTTO_ADMIN_PATH . 'functions.php';
+        // require_once CTTO_ADMIN_PATH . 'license-manager.php';
+        // require_once CTTO_ADMIN_PATH . 'control-panel/control-panel.php';
+        // require_once CTTO_ADMIN_PATH . 'setup-wizard/setup-wizard.php';
+        // require_once CTTO_ADMIN_PATH . 'update-plugins/class-update-plugins.php';
+        // require_once CTTO_ADMIN_PATH . 'update-plugins/functions.php';
+        // require_once CTTO_ADMIN_PATH . 'update-theme/class-update-theme.php';
+        // require_once CTTO_ADMIN_PATH . 'notices/survey-notification-bar.php';
+        // require_once CTTO_ADMIN_PATH . 'notices/feedback-notification-bar.php';
+        // require_once CTTO_ADMIN_PATH . 'welcome/welcome.php';
+    }
+
+    // Include assets. Here make attachment scripts and styles into main template
+    include_once CTTO_CLASSES_PATH . 'class-ctto-assets.php';
+
+    // Include renderers. Here connector partials with main template
+    include_once CTTO_RENDER_PATH . 'template-layout.php';
+    include_once CTTO_RENDER_PATH . 'template-parts.php';
+    include_once CTTO_RENDER_PATH . 'template-patterns.php';
+    include_once CTTO_RENDER_PATH . 'template-partials.php';
+    include_once CTTO_RENDER_PATH . 'template-menu.php';
+    include_once CTTO_RENDER_PATH . 'widget-area.php';
+    include_once CTTO_RENDER_PATH . 'menu-walker.php';
+}
 
 /**
  * Fires before Classtto loads.
@@ -149,7 +219,7 @@ do_action('ctto_before_init');
  * 1 - ctto_define_constants
  * 
  * 2 - ctto_load_dependencies
- * 		 
+ *          
  * 3 - ctto_add_theme_support
  * 
  * 4 - ctto_includes
