@@ -214,9 +214,8 @@ add_action( 'ctto_init', 'ctto_load_textdomain' );
  * @return void
  */
 function ctto_load_textdomain() {
-	load_theme_textdomain( 'ctto', JUPITERX_LANGUAGES_PATH );
+	load_theme_textdomain( 'ctto', CTTO_LANGUAGES_PATH );
 }
-add_action( 'ctto_before_init', 'ctto_load_pro', -1 );
 
 /**
  * Fires before Classtto loads.
@@ -228,16 +227,11 @@ do_action( 'ctto_before_init' );
 /**
  * Load Classtto framework.
  *
- * 1 - ctto_define_constants
- *
- * 2 - ctto_load_dependencies
- *
- * 3 - ctto_add_theme_support
- *
- * 4 - ctto_includes
- *
- * 5 - ctto_load_textdomain
- *
+ * 1 - ctto_define_constants *
+ * 2 - ctto_load_dependencies *
+ * 3 - ctto_add_theme_support *
+ * 4 - ctto_includes *
+ * 5 - ctto_load_textdomain *
  * 6 - ctto_wc_add_theme_support
  *
  * @since 1.0.0
