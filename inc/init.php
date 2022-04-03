@@ -94,18 +94,8 @@ function ctto_load_dependencies() {
 
 	$components = array(
 		'classes',
-		// 'actions',
-		// 'post-meta',
-		// 'image',
-		// 'fonts',
-		// 'customizer',
-		// 'custom-fields',
-		// 'layout',
-		// 'header',
-		// 'menu',
-		// 'widget',
-		// 'footer',
-		// 'onboarding',
+		'builder',
+		'render',
 	);
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {

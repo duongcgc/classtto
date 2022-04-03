@@ -1,32 +1,14 @@
 <?php
 /**
- * The header.
+ * This file's content is located in /templates/layout/header.php and should
+ * only be overwritten via your child theme.
  *
- * This is the template that displays all of the <head> section and everything up until main.
+ * We strongly recommend to read the Classtto documentation to find out more about
+ * how to customize Classtto theme.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage CTTO
- * @since Class TTO 1.0
+ * @author Classtto
+ * @link   https://gcodesign.com
+ * @package Classtto\Framework
  */
 
-?>
-<!doctype html>
-<html <?php language_attributes(); ?> <?php ctto_the_html_classes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ctto' ); ?></a>
-
-	<?php get_template_part( 'template-parts/header/site-header' ); ?>
-
-	<div id="content" class="site-content">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+\Classtto\Template::ctto_load_default_template( __FILE__ );

@@ -33,8 +33,10 @@ function ctto_load_components( $components ) {
 	$common = array(
 		'classes'         => array(
 			$root . 'classes/init.php',
+			$root . 'classes/class-anonymous-action.php',
 			$root . 'classes/class-template.php',
 			$root . 'classes/class-html.php',
+			$root . 'classes/class-html-attribute.php',
 			$root . 'classes/class-image.php',
 			$root . 'classes/class-custom-colors.php',
 		),
