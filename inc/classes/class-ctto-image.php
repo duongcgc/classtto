@@ -8,13 +8,12 @@
  * @package Classtto\Framework\Image
  *
  * @since   1.0.0
- *
  */
 
 namespace Classtto;
 
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -23,69 +22,72 @@ if (!defined('ABSPATH')) {
  * @since 1.0.0
  */
 class Image {
-    /**
-     * Instance
-     *
-     * @var $instance
-     */
-    protected static $instance = null;
+	/**
+	 * Instance
+	 *
+	 * @var $instance
+	 */
+	protected static $instance = null;
 
-    /**
-     * Initiator
-     *
-     * @since 1.0.0
-     * @return object
-     */
-    public static function instance() {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
+	/**
+	 * Initiator
+	 *
+	 * @since 1.0.0
+	 * @return object
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Instantiate the object.
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function __construct() {
+	/**
+	 * Instantiate the object.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function __construct() {
 
-        /**
-         * Fires before the image is loaded.
-         *
-         * @since 1.0.0
-         */
-        do_action( 'ctto_before_load_image' );
+		/**
+		 * Fires before the image is loaded.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'ctto_before_load_image' );
 
-        /**
-         * Fires when the image loads.
-         *
-         * This hook is the root of Classtto's framework hierarchy. It all starts here!
-         *
-         * @since 1.0.0
-         */
-        do_action( 'ctto_load_image' );
+		/**
+		 * Fires when the image loads.
+		 *
+		 * This hook is the root of Classtto's framework hierarchy. It all starts here!
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'ctto_load_image' );
 
-        /**
-         * Fires after the image is loaded.
-         *
-         * @since 1.0.0
-         */
-        do_action( 'ctto_after_load_image' );
-    }
+		/**
+		 * Fires after the image is loaded.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'ctto_after_load_image' );
+	}
 
 
-    /**
-     * Register custom image sizes.
-     *
-     * @since 1.13.0
-     *
-     * @return void
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     */
-    public static function register_image_sizes() {
-    }
+	/**
+	 * Register custom image sizes.
+	 *
+	 * @since 1.13.0
+	 *
+	 * @return void
+	 * @SuppressWarnings(PHPMD.NPathComplexity)
+	 */
+	public static function register_image_sizes() {
+
+		set_post_thumbnail_size( 1568, 9999 );
+
+	}
 }
