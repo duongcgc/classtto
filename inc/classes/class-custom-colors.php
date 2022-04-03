@@ -3,14 +3,14 @@
  * Custom Colors Class
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
 /**
  * This class is in charge of color customization via the Customizer.
  */
-class Class_TTO_Custom_Colors {
+class CTTO_Custom_Colors {
 
 	/**
 	 * Instantiate the object.

@@ -3,7 +3,7 @@
  * Functions which enhance the theme by hooking into WordPress
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -196,7 +196,7 @@ add_filter( 'the_title', 'ctto_post_title' );
  * @return string
  */
 function ctto_get_icon_svg( $group, $icon, $size = 24 ) {
-	return Class_TTO_SVG_Icons::get_svg( $group, $icon, $size );
+	return CTTO_SVG_Icons::get_svg( $group, $icon, $size );
 }
 
 /**

@@ -3,17 +3,17 @@
  * Customizer settings for this theme.
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
-if ( ! class_exists( 'Class_TTO_Customize' ) ) {
+if ( ! class_exists( 'CTTO_Customize' ) ) {
 	/**
 	 * Customizer Settings.
 	 *
 	 * @since Class TTO 1.0
 	 */
-	class Class_TTO_Customize {
+	class CTTO_Customize {
 
 		/**
 		 * Constructor. Instantiate the object.
@@ -113,10 +113,10 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 
 			// Background color.
 			// Include the custom control class.
-			include_once get_theme_file_path( 'classes/class-ctto-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			include_once get_theme_file_path( 'classes/class-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			// Register the custom control.
-			$wp_customize->register_control_type( 'Class_TTO_Customize_Color_Control' );
+			$wp_customize->register_control_type( 'CTTO_Customize_Color_Control' );
 
 			// Get the palette from theme-supports.
 			$palette = get_theme_support( 'editor-color-palette' );
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Class_TTO_Customize' ) ) {
 
 			// Add the control. Overrides the default background-color control.
 			$wp_customize->add_control(
-				new Class_TTO_Customize_Color_Control(
+				new CTTO_Customize_Color_Control(
 					$wp_customize,
 					'background_color',
 					array(

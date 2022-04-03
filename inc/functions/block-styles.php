@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/reference/functions/register_block_style/
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

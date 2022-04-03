@@ -1,9 +1,9 @@
 <?php
 /**
- * Customize API: Class_TTO_Customize_Notice_Control class
+ * Customize API: CTTO_Customize_Notice_Control class
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -14,7 +14,7 @@
  *
  * @see WP_Customize_Control
  */
-class Class_TTO_Customize_Notice_Control extends WP_Customize_Control {
+class CTTO_Customize_Notice_Control extends WP_Customize_Control {
 	/**
 	 * The control type.
 	 *

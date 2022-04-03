@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Prepare and initialize the Classtto framework.
  *
@@ -225,7 +224,7 @@ function ctto_add_theme_support() {
 	// Add support for editor styles.
 	add_theme_support( 'editor-styles' );
 	$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
-	if ( 127 > Class_TTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
+	if ( 127 > CTTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
 		add_theme_support( 'dark-editor-style' );
 	}
 
@@ -476,7 +475,7 @@ function ctto_includes() {
 	}
 
 	// Include assets. Here make attachment scripts and styles into main template.
-	include_once CTTO_CLASSES_PATH . 'class-ctto-assets.php';
+	include_once CTTO_CLASSES_PATH . 'class-assets.php';
 
 	// Include renderers. Here connector partials with main template.
 	include_once CTTO_RENDER_PATH . 'template-layout.php';

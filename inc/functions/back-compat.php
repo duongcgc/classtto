@@ -7,7 +7,7 @@
  * relies on many newer functions and markup changes introduced in 5.3.
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

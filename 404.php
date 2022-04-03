@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

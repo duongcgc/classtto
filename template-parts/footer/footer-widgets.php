@@ -3,7 +3,7 @@
  * Displays the footer widget area.
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

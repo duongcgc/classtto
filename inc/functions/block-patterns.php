@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/reference/functions/register_block_pattern_category/
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

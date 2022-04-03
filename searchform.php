@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/reference/functions/get_search_form/
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

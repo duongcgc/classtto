@@ -3,7 +3,7 @@
  * SVG Icons class
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -19,7 +19,7 @@
  *
  * @since Class TTO 1.0
  */
-class Class_TTO_SVG_Icons {
+class CTTO_SVG_Icons {
 
 	/**
 	 * User Interface icons – svg sources.

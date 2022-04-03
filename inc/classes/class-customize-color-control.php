@@ -3,7 +3,7 @@
  * Customize API: WP_Customize_Color_Control class
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -14,7 +14,7 @@
  *
  * @see WP_Customize_Control
  */
-class Class_TTO_Customize_Color_Control extends WP_Customize_Color_Control {
+class CTTO_Customize_Color_Control extends WP_Customize_Color_Control {
 	/**
 	 * The control type.
 	 *

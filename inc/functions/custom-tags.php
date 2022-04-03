@@ -3,7 +3,7 @@
  * Custom template tags for this theme
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

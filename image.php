@@ -3,7 +3,7 @@
  * The template for displaying image attachments
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 

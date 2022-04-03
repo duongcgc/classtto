@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The Classtto Image allows to load Classtto template files as well as loading the entire document.
  *

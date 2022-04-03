@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -126,7 +126,7 @@ if ( ! function_exists( 'ctto_setup' ) ) {
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 		$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
-		if ( 127 > Class_TTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
+		if ( 127 > CTTO_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
 			add_theme_support( 'dark-editor-style' );
 		}
 
@@ -527,11 +527,11 @@ function ctto_non_latin_languages() {
 add_action( 'wp_enqueue_scripts', 'ctto_non_latin_languages' );
 
 // SVG Icons class.
-require get_template_directory() . '/classes/class-ctto-svg-icons.php';
+require get_template_directory() . '/classes/class-svg-icons.php';
 
 // Custom color classes.
-require get_template_directory() . '/classes/class-ctto-custom-colors.php';
-new Class_TTO_Custom_Colors();
+require get_template_directory() . '/classes/class-custom-colors.php';
+new CTTO_Custom_Colors();
 
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
@@ -543,8 +543,8 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/classes/class-ctto-customize.php';
-new Class_TTO_Customize();
+require get_template_directory() . '/classes/class-customize.php';
+new CTTO_Customize();
 
 // Block Patterns.
 require get_template_directory() . '/inc/block-patterns.php';
@@ -553,8 +553,8 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory() . '/classes/class-ctto-dark-mode.php';
-new Class_TTO_Dark_Mode();
+require_once get_template_directory() . '/classes/class-dark-mode.php';
+new CTTO_Dark_Mode();
 
 /**
  * Enqueue scripts for the customizer preview.

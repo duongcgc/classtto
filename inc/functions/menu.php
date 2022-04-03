@@ -8,7 +8,7 @@
  * @link https://make.wordpress.org/themes/2020/07/06/printing-navigation-block-html-from-a-legacy-menu-in-themes/
  *
  * @package WordPress
- * @subpackage Class_TTO
+ * @subpackage CTTO
  * @since Class TTO 1.0
  */
 
@@ -48,7 +48,7 @@ add_filter( 'walker_nav_menu_start_el', 'ctto_add_sub_menu_toggle', 10, 4 );
  * @return string
  */
 function ctto_get_social_link_svg( $uri, $size = 24 ) {
-	return Class_TTO_SVG_Icons::get_social_link_svg( $uri, $size );
+	return CTTO_SVG_Icons::get_social_link_svg( $uri, $size );
 }
 
 /**

@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Load the INC components.
@@ -10,29 +9,29 @@
  */
 
 // Stop here if the INC was already loaded.
-if (defined('CTTO_INC')) {
-    return;
+if ( defined( 'CTTO_INC' ) ) {
+	return;
 }
 
 // Declare Classtto INC.
-define('CTTO_INC', true);
+define( 'CTTO_INC', true );
 
 // Mode.
-if (!defined('SCRIPT_DEBUG')) {
-    define('SCRIPT_DEBUG', false); // @phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound -- Valid use case as we need it defined.
+if ( ! defined( 'SCRIPT_DEBUG' ) ) {
+	define( 'SCRIPT_DEBUG', false ); // @phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound -- Valid use case as we need it defined.
 }
 
 // Assets.
-define('CTTO_MIN_CSS', SCRIPT_DEBUG ? '' : '.min');
-define('CTTO_MIN_JS', SCRIPT_DEBUG ? '' : '.min');
-define('CTTO_RTL', is_rtl() ? '-rtl' : '');
+define( 'CTTO_MIN_CSS', SCRIPT_DEBUG ? '' : '.min' );
+define( 'CTTO_MIN_JS', SCRIPT_DEBUG ? '' : '.min' );
+define( 'CTTO_RTL', is_rtl() ? '-rtl' : '' );
 
 // Path.
-if (!defined('CTTO_INC_PATH')) {
-    define('CTTO_INC_PATH', wp_normalize_path(trailingslashit(dirname(__FILE__))));
+if ( ! defined( 'CTTO_INC_PATH' ) ) {
+	define( 'CTTO_INC_PATH', wp_normalize_path( trailingslashit( dirname( __FILE__ ) ) ) );
 }
 
-define('CTTO_INC_ADMIN_PATH', CTTO_THEME_PATH . 'admin/');
+define( 'CTTO_INC_ADMIN_PATH', CTTO_THEME_PATH . 'admin/' );
 
 // Load dependencies here, as these are used further down.
 require_once CTTO_INC_PATH . 'components.php';              // components loading
@@ -41,11 +40,11 @@ require_once CTTO_FUNCS_PATH . 'custom-tags.php';           // template tags
 require_once CTTO_FUNCS_PATH . 'template-hooks.php';        // template functions
 
 // Url.
-if (!defined('CTTO_INC_URL')) {
-    define('CTTO_INC_URL', ctto_path_to_url(CTTO_INC_PATH));
+if ( ! defined( 'CTTO_INC_URL' ) ) {
+	define( 'CTTO_INC_URL', ctto_path_to_url( CTTO_INC_PATH ) );
 }
 
 // Backwards compatibility constants.
-define('CTTO_INC_COMPONENTS_PATH', CTTO_INC_PATH);
-define('CTTO_INC_COMPONENTS_ADMIN_PATH', CTTO_INC_PATH . 'admin/');
-define('CTTO_INC_COMPONENTS_URL', CTTO_INC_URL);
+define( 'CTTO_INC_COMPONENTS_PATH', CTTO_INC_PATH );
+define( 'CTTO_INC_COMPONENTS_ADMIN_PATH', CTTO_INC_PATH . 'admin/' );
+define( 'CTTO_INC_COMPONENTS_URL', CTTO_INC_URL );
