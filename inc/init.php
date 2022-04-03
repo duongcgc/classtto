@@ -204,6 +204,20 @@ function ctto_includes() {
 	include_once CTTO_RENDER_PATH . 'menu-walker.php';
 }
 
+add_action( 'ctto_init', 'ctto_load_textdomain' );
+/**
+ * Load text domain.
+ *
+ * @since 1.0.0
+ * @ignore
+ *
+ * @return void
+ */
+function ctto_load_textdomain() {
+	load_theme_textdomain( 'ctto', JUPITERX_LANGUAGES_PATH );
+}
+add_action( 'ctto_before_init', 'ctto_load_pro', -1 );
+
 /**
  * Fires before Classtto loads.
  *
